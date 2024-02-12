@@ -1,0 +1,7 @@
+package com.juul.khronicle
+
+internal object AnyKey : Key<Any>
+
+internal object StringKey : Key<String>
+
+internal object BooleanKey : Key<Boolean>
