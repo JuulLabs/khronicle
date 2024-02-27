@@ -21,12 +21,7 @@ jobs:
       - name: assemble
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: assemble
-
-      - name: check
-        uses: gradle/gradle-build-action@v2
-        with:
-          arguments: check jacocoTestReport
+          arguments: assemble check jacocoTestReport
 
       - uses: codecov/codecov-action@v4
 
