@@ -26,7 +26,9 @@ jobs:
       - name: check
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: check
+          arguments: check jacocoTestReport
+
+      - uses: codecov/codecov-action@v4
 
       - name: publishToMavenLocal
         uses: gradle/gradle-build-action@v2
