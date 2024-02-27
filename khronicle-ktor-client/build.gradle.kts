@@ -13,46 +13,29 @@ kotlin {
     explicitApi()
     jvmToolchain(libs.versions.jvm.toolchain.get().toInt())
 
-    jvm()
-    js().browser()
-    macosX64()
-    macosArm64()
-    iosX64()
     iosArm64()
     iosSimulatorArm64()
+    iosX64()
+    js().browser()
+    jvm()
+    macosArm64()
+    macosX64()
 
     sourceSets {
-
         all {
             languageSettings.optIn("com.juul.khronicle.KhronicleInternal")
         }
 
-        val commonMain by getting {
-            dependencies {
-                api(projects.khronicleCore)
-                api(libs.ktor.core)
-                api(libs.ktor.logging)
-            }
+        commonMain.dependencies {
+            api(libs.ktor.core)
+            api(libs.ktor.logging)
+            api(projects.khronicleCore)
         }
 
-        val commonTest by getting {
-            dependencies {
-                implementation(kotlin("test"))
-                implementation(libs.ktor.mock)
-                implementation(libs.kotlinx.coroutines.test)
-            }
+        commonTest.dependencies {
+            implementation(kotlin("test"))
+            implementation(libs.kotlinx.coroutines.test)
+            implementation(libs.ktor.mock)
         }
-
-//        val jvmTest by getting {
-//            dependencies {
-//                implementation(kotlin("test-junit"))
-//            }
-//        }
-//
-//        val jsTest by getting {
-//            dependencies {
-//                implementation(kotlin("test-js"))
-//            }
-//        }
     }
 }
