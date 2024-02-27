@@ -19,6 +19,7 @@ jobs:
       - name: publishToMavenLocal
         uses: gradle/gradle-build-action@v2
         with:
+          cache-read-only: true
           arguments: |
             -PsigningInMemoryKey=${{ secrets.SIGNING_KEY }}
             -PsigningInMemoryKeyPassword=${{ secrets.SIGNING_PASSWORD }}
