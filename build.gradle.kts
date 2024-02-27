@@ -34,6 +34,23 @@ allprojects {
     }
 
     withPluginWhenEvaluated("jacoco") {
+        tasks.register<JacocoReport>("jacocoTestReport") {
+            group = "Verification"
+            description = "Generate JaCoCo test coverage report"
+
+            reports {
+                csv.required.set(false)
+                html.required.set(true)
+                xml.required.set(true)
+            }
+
+            classDirectories.setFrom(layout.buildDirectory.file("classes/kotlin/jvm/main"))
+            sourceDirectories.setFrom(layout.projectDirectory.files("src/commonMain", "src/jvmMain"))
+            executionData.setFrom(layout.buildDirectory.file("jacoco/jvmTest.exec"))
+
+            dependsOn("jvmTest")
+        }
+
         configure<JacocoPluginExtension> {
             toolVersion = libs.versions.jacoco.get()
         }
