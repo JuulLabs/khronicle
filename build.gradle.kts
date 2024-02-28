@@ -58,7 +58,7 @@ allprojects {
 }
 
 tasks.dokkaHtmlMultiModule.configure {
-    outputDirectory.fileProvider(layout.buildDirectory.file("gh-pages").map { it.asFile })
+    outputDirectory.fileProvider(layout.buildDirectory.file("dokkaHtmlMultiModule").map { it.asFile })
 }
 
 fun Project.withPluginWhenEvaluated(plugin: String, action: Project.() -> Unit) {
