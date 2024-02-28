@@ -13,10 +13,8 @@ kotlin {
     androidTarget().publishAllLibraryVariants()
 
     sourceSets {
-        val commonMain by getting {
-            dependencies {
-                api(projects.khronicleCore)
-            }
+        commonMain.dependencies {
+            api(projects.khronicleCore)
         }
     }
 }
