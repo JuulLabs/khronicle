@@ -1,0 +1,33 @@
+name: CI
+on:
+  pull_request:
+  # Trigger on merges to `main` to allow `gradle/gradle-build-action` runs to write their caches.
+  # https://github.com/gradle/gradle-build-action#using-the-caches-read-only
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: gradle/wrapper-validation-action@v2
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: assemble
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: assemble check jacocoTestReport
+
+      - uses: codecov/codecov-action@v4
+
+      - name: publishToMavenLocal
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: |
+            -PRELEASE_SIGNING_ENABLED=false
+            publishToMavenLocal
