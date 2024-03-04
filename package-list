@@ -1,0 +1,14 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:com.juul.khronicle/ConsoleLogger/assert/#kotlin.String#kotlin.String#com.juul.khronicle.ReadMetadata#kotlin.Throwable?/PointingToDeclaration/khronicle-core/com.juul.khronicle/-console-logger/[jvm]assert.html
+$dokka.location:com.juul.khronicle/ConsoleLogger/debug/#kotlin.String#kotlin.String#com.juul.khronicle.ReadMetadata#kotlin.Throwable?/PointingToDeclaration/khronicle-core/com.juul.khronicle/-console-logger/[jvm]debug.html
+$dokka.location:com.juul.khronicle/ConsoleLogger/error/#kotlin.String#kotlin.String#com.juul.khronicle.ReadMetadata#kotlin.Throwable?/PointingToDeclaration/khronicle-core/com.juul.khronicle/-console-logger/[jvm]error.html
+$dokka.location:com.juul.khronicle/ConsoleLogger/info/#kotlin.String#kotlin.String#com.juul.khronicle.ReadMetadata#kotlin.Throwable?/PointingToDeclaration/khronicle-core/com.juul.khronicle/-console-logger/[jvm]info.html
+$dokka.location:com.juul.khronicle/ConsoleLogger/verbose/#kotlin.String#kotlin.String#com.juul.khronicle.ReadMetadata#kotlin.Throwable?/PointingToDeclaration/khronicle-core/com.juul.khronicle/-console-logger/[jvm]verbose.html
+$dokka.location:com.juul.khronicle/ConsoleLogger/warn/#kotlin.String#kotlin.String#com.juul.khronicle.ReadMetadata#kotlin.Throwable?/PointingToDeclaration/khronicle-core/com.juul.khronicle/-console-logger/[jvm]warn.html
+module:khronicle-android
+com.juul.khronicle
+module:khronicle-core
+com.juul.khronicle
+module:khronicle-ktor-client
+com.juul.khronicle
