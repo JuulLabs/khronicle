@@ -19,7 +19,7 @@ jobs:
           java-version: '17'
 
       - name: assemble
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v3
         with:
           arguments: assemble check jacocoTestReport
 
@@ -28,7 +28,7 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
 
       - name: publishToMavenLocal
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v3
         with:
           arguments: |
             -PRELEASE_SIGNING_ENABLED=false
