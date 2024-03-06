@@ -46,7 +46,7 @@ allprojects {
                 xml.required.set(true)
             }
 
-            classDirectories.setFrom(layout.buildDirectory.file("classes/kotlin/jvm/main"))
+            classDirectories.setFrom(layout.buildDirectory.file("classes/atomicfu-orig/jvm/main"))
             sourceDirectories.setFrom(layout.projectDirectory.files("src/commonMain", "src/jvmMain"))
             executionData.setFrom(layout.buildDirectory.file("jacoco/jvmTest.exec"))
 
@@ -60,7 +60,7 @@ allprojects {
 }
 
 tasks.dokkaHtmlMultiModule.configure {
-    outputDirectory.fileProvider(layout.buildDirectory.file("gh-pages").map { it.asFile })
+    outputDirectory.fileProvider(layout.buildDirectory.file("dokkaHtmlMultiModule").map { it.asFile })
 }
 
 fun Project.withPluginWhenEvaluated(plugin: String, action: Project.() -> Unit) {
