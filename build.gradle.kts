@@ -46,7 +46,7 @@ allprojects {
                 xml.required.set(true)
             }
 
-            classDirectories.setFrom(layout.buildDirectory.file("classes/kotlin/jvm/main"))
+            classDirectories.setFrom(layout.buildDirectory.file("classes/atomicfu-orig/jvm/main"))
             sourceDirectories.setFrom(layout.projectDirectory.files("src/commonMain", "src/jvmMain"))
             executionData.setFrom(layout.buildDirectory.file("jacoco/jvmTest.exec"))
 
