@@ -132,6 +132,17 @@ public final class com/juul/khronicle/Logger$DefaultImpls {
 	public static fun getMinimumLogLevel (Lcom/juul/khronicle/Logger;)Lcom/juul/khronicle/LogLevel;
 }
 
+public final class com/juul/khronicle/PrintlnLogger : com/juul/khronicle/HideFromStackTraceTag, com/juul/khronicle/Logger {
+	public static final field INSTANCE Lcom/juul/khronicle/PrintlnLogger;
+	public fun assert (Ljava/lang/String;Ljava/lang/String;Lcom/juul/khronicle/ReadMetadata;Ljava/lang/Throwable;)V
+	public fun debug (Ljava/lang/String;Ljava/lang/String;Lcom/juul/khronicle/ReadMetadata;Ljava/lang/Throwable;)V
+	public fun error (Ljava/lang/String;Ljava/lang/String;Lcom/juul/khronicle/ReadMetadata;Ljava/lang/Throwable;)V
+	public fun getMinimumLogLevel ()Lcom/juul/khronicle/LogLevel;
+	public fun info (Ljava/lang/String;Ljava/lang/String;Lcom/juul/khronicle/ReadMetadata;Ljava/lang/Throwable;)V
+	public fun verbose (Ljava/lang/String;Ljava/lang/String;Lcom/juul/khronicle/ReadMetadata;Ljava/lang/Throwable;)V
+	public fun warn (Ljava/lang/String;Ljava/lang/String;Lcom/juul/khronicle/ReadMetadata;Ljava/lang/Throwable;)V
+}
+
 public abstract interface class com/juul/khronicle/ReadMetadata {
 	public abstract fun copy ()Lcom/juul/khronicle/ReadMetadata;
 	public abstract fun get (Lcom/juul/khronicle/Key;)Ljava/lang/Object;
