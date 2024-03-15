@@ -3,7 +3,7 @@ android-compile = "34"
 jacoco = "0.8.7"
 jvm-toolchain = "8"
 kotlin = "1.9.23"
-ktor = "2.3.8"
+ktor = "2.3.9"
 
 [libraries]
 atomicfu = { module = "org.jetbrains.kotlinx:atomicfu-gradle-plugin", version = "0.23.2" }
