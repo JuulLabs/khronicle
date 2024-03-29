@@ -41,4 +41,30 @@ class MetadataTests {
         metadata.clear()
         assertNull(metadata[StringKey])
     }
+
+
+    @Test
+    fun get_withDynamicKeys_respectsArguments() {
+        val metadata = Metadata().also { metadata ->
+            metadata[DynamicKey("foo")] = "first"
+            metadata[DynamicKey("bar")] = "second"
+        }
+        assertEquals(expected = "first", actual = metadata[DynamicKey("foo")])
+        assertEquals(expected = "second", actual = metadata[DynamicKey("bar")])
+    }
+
+    @Test
+    fun getAll_withDynamicKeys_returnsFullMap() {
+        val metadata = Metadata().also { metadata ->
+            metadata[DynamicKey("foo")] = "first"
+            metadata[DynamicKey("bar")] = "second"
+        }
+        assertEquals(
+            expected = mapOf(
+                DynamicKey("foo") to "first",
+                DynamicKey("bar") to "second",
+            ),
+            actual = metadata.getAll(DynamicKey::class),
+        )
+    }
 }
