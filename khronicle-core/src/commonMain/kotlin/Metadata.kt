@@ -10,7 +10,7 @@ internal class Metadata : ReadMetadata, WriteMetadata {
         storedData[key] as? T
 
     @Suppress("UNCHECKED_CAST")
-    override fun <K : Key<T>, T: Any> getAll(clazz: KClass<out K>): Map<K, T> =
+    override fun <K : Key<T>, T : Any> getAll(clazz: KClass<out K>): Map<K, T> =
         storedData.filter { (key, _) -> clazz.isInstance(key) } as Map<K, T>
 
     override operator fun <T : Any> set(key: Key<T>, value: T) {
@@ -41,7 +41,7 @@ public sealed interface ReadMetadata {
 
     public operator fun <T : Any> get(key: Key<T>): T?
 
-    public fun <K : Key<T>, T: Any> getAll(clazz: KClass<out K>): Map<K, T>
+    public fun <K : Key<T>, T : Any> getAll(clazz: KClass<out K>): Map<K, T>
 
     public fun copy(): ReadMetadata
 }

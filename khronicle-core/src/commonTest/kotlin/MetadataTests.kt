@@ -42,7 +42,6 @@ class MetadataTests {
         assertNull(metadata[StringKey])
     }
 
-
     @Test
     fun get_withDynamicKeys_respectsArguments() {
         val metadata = Metadata().also { metadata ->

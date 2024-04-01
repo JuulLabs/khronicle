@@ -146,6 +146,7 @@ public final class com/juul/khronicle/PrintlnLogger : com/juul/khronicle/HideFro
 public abstract interface class com/juul/khronicle/ReadMetadata {
 	public abstract fun copy ()Lcom/juul/khronicle/ReadMetadata;
 	public abstract fun get (Lcom/juul/khronicle/Key;)Ljava/lang/Object;
+	public abstract fun getAll (Lkotlin/reflect/KClass;)Ljava/util/Map;
 }
 
 public final class com/juul/khronicle/Sensitivity : java/lang/Enum {
@@ -158,6 +159,18 @@ public final class com/juul/khronicle/Sensitivity : java/lang/Enum {
 }
 
 public final class com/juul/khronicle/Sensitivity$Companion : com/juul/khronicle/Key {
+}
+
+public abstract class com/juul/khronicle/SimpleLogger : com/juul/khronicle/Logger {
+	public fun <init> ()V
+	public final fun assert (Ljava/lang/String;Ljava/lang/String;Lcom/juul/khronicle/ReadMetadata;Ljava/lang/Throwable;)V
+	public final fun debug (Ljava/lang/String;Ljava/lang/String;Lcom/juul/khronicle/ReadMetadata;Ljava/lang/Throwable;)V
+	public final fun error (Ljava/lang/String;Ljava/lang/String;Lcom/juul/khronicle/ReadMetadata;Ljava/lang/Throwable;)V
+	public fun getMinimumLogLevel ()Lcom/juul/khronicle/LogLevel;
+	public final fun info (Ljava/lang/String;Ljava/lang/String;Lcom/juul/khronicle/ReadMetadata;Ljava/lang/Throwable;)V
+	public abstract fun log (Lcom/juul/khronicle/LogLevel;Ljava/lang/String;Ljava/lang/String;Lcom/juul/khronicle/ReadMetadata;Ljava/lang/Throwable;)V
+	public final fun verbose (Ljava/lang/String;Ljava/lang/String;Lcom/juul/khronicle/ReadMetadata;Ljava/lang/Throwable;)V
+	public final fun warn (Ljava/lang/String;Ljava/lang/String;Lcom/juul/khronicle/ReadMetadata;Ljava/lang/Throwable;)V
 }
 
 public abstract interface class com/juul/khronicle/TagGenerator {
