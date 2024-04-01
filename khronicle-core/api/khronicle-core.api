@@ -118,7 +118,7 @@ public final class com/juul/khronicle/LogLevel : java/lang/Enum {
 	public static fun values ()[Lcom/juul/khronicle/LogLevel;
 }
 
-public abstract interface class com/juul/khronicle/Logger {
+public abstract interface class com/juul/khronicle/Logger : com/juul/khronicle/HideFromStackTraceTag {
 	public abstract fun assert (Ljava/lang/String;Ljava/lang/String;Lcom/juul/khronicle/ReadMetadata;Ljava/lang/Throwable;)V
 	public abstract fun debug (Ljava/lang/String;Ljava/lang/String;Lcom/juul/khronicle/ReadMetadata;Ljava/lang/Throwable;)V
 	public abstract fun error (Ljava/lang/String;Ljava/lang/String;Lcom/juul/khronicle/ReadMetadata;Ljava/lang/Throwable;)V

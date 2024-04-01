@@ -1,7 +1,7 @@
 package com.juul.khronicle
 
 /** Classes which implement [Logger] can write logs. */
-public interface Logger {
+public interface Logger : HideFromStackTraceTag {
 
     /** Minimum level for this logger. Defaults to [LogLevel.Verbose] (all logs) if not overwritten. */
     public val minimumLogLevel: LogLevel
