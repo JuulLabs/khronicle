@@ -2,7 +2,11 @@ package com.juul.khronicle
 
 import kotlin.reflect.KClass
 
-internal class Metadata : ReadMetadata, WriteMetadata {
+/**
+ * Use this class for writing tests only! Otherwise, library consumers should operate on the
+ * [ReadMetadata] and [WriteMetadata] interfaces.
+ */
+public class Metadata : ReadMetadata, WriteMetadata {
     private val storedData = mutableMapOf<Key<*>, Any>()
 
     @Suppress("UNCHECKED_CAST")
@@ -21,7 +25,7 @@ internal class Metadata : ReadMetadata, WriteMetadata {
         copy.storedData += this.storedData
     }
 
-    fun clear() {
+    public fun clear() {
         storedData.clear()
     }
 
@@ -50,6 +54,6 @@ public sealed interface ReadMetadata {
  * Additional data associated with a log. It's important that [Log] calls do NOT hold onto references
  * to [WriteMetadata] arguments after the lambda returns.
  */
-public interface WriteMetadata {
+public sealed interface WriteMetadata {
     public operator fun <T : Any> set(key: Key<T>, value: T)
 }
