@@ -2,7 +2,6 @@ plugins {
     kotlin("multiplatform")
     id("kotlinx-atomicfu")
     id("org.jmailen.kotlinter")
-    jacoco
     id("org.jetbrains.dokka")
     id("com.vanniktech.maven.publish")
 }
