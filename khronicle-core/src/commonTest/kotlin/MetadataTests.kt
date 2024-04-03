@@ -1,5 +1,6 @@
 package com.juul.khronicle
 
+import com.juul.khronicle.test.buildMetadata
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNull
@@ -10,7 +11,7 @@ class MetadataTests {
     @Test
     fun copy_isShallow() {
         val expected = Any()
-        val metadata = Metadata().also {
+        val metadata = buildMetadata {
             it[AnyKey] = expected
         }
         val actual = metadata.copy()[AnyKey]
@@ -19,7 +20,7 @@ class MetadataTests {
 
     @Test
     fun get_respectsKeys() {
-        val metadata = Metadata().also {
+        val metadata = buildMetadata {
             it[StringKey] = "test"
             it[BooleanKey] = false
         }
@@ -29,22 +30,22 @@ class MetadataTests {
 
     @Test
     fun get_withNoSet_returnsNull() {
-        val metadata = Metadata()
+        val metadata = buildMetadata()
         assertNull(metadata[StringKey])
     }
 
     @Test
     fun get_afterReset_returnsNull() {
-        val metadata = Metadata().also {
+        val metadata = buildMetadata {
             it[StringKey] = "test"
         }
-        metadata.clear()
+        (metadata as Metadata).clear()
         assertNull(metadata[StringKey])
     }
 
     @Test
     fun get_withDynamicKeys_respectsArguments() {
-        val metadata = Metadata().also { metadata ->
+        val metadata = buildMetadata { metadata ->
             metadata[DynamicKey("foo")] = "first"
             metadata[DynamicKey("bar")] = "second"
         }
@@ -54,7 +55,7 @@ class MetadataTests {
 
     @Test
     fun getAll_withDynamicKeys_returnsFullMap() {
-        val metadata = Metadata().also { metadata ->
+        val metadata = buildMetadata { metadata ->
             metadata[DynamicKey("foo")] = "first"
             metadata[DynamicKey("bar")] = "second"
         }

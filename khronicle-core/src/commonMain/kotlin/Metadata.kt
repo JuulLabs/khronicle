@@ -2,10 +2,7 @@ package com.juul.khronicle
 
 import kotlin.reflect.KClass
 
-/**
- * Use this class for writing tests only! Otherwise, library consumers should operate on the
- * [ReadMetadata] and [WriteMetadata] interfaces.
- */
+@KhronicleInternal
 public class Metadata : ReadMetadata, WriteMetadata {
     private val storedData = mutableMapOf<Key<*>, Any>()
 
@@ -25,7 +22,7 @@ public class Metadata : ReadMetadata, WriteMetadata {
         copy.storedData += this.storedData
     }
 
-    public fun clear() {
+    internal fun clear() {
         storedData.clear()
     }
 

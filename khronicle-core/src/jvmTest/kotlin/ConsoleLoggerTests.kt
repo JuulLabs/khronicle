@@ -1,5 +1,6 @@
 package com.juul.khronicle
 
+import com.juul.khronicle.test.buildMetadata
 import java.io.ByteArrayOutputStream
 import java.io.PrintStream
 import java.nio.charset.StandardCharsets
@@ -42,7 +43,7 @@ class ConsoleLoggerTests {
 
     @Test
     fun checkVerboseWithoutThrowable() {
-        ConsoleLogger.verbose(TAG, MESSAGE, Metadata(), null)
+        ConsoleLogger.verbose(TAG, MESSAGE, buildMetadata(), null)
         val logString = testOutBuffer.toString(UTF8)
         assertTrue(TAG in logString)
         assertTrue(MESSAGE in logString)
@@ -51,7 +52,7 @@ class ConsoleLoggerTests {
     @Test
     fun checkVerboseWithThrowable() {
         val throwable = Throwable()
-        ConsoleLogger.verbose(TAG, MESSAGE, Metadata(), throwable)
+        ConsoleLogger.verbose(TAG, MESSAGE, buildMetadata(), throwable)
         val logString = testOutBuffer.toString(UTF8)
         assertTrue(TAG in logString)
         assertTrue(MESSAGE in logString)
@@ -60,7 +61,7 @@ class ConsoleLoggerTests {
 
     @Test
     fun checkDebugWithoutThrowable() {
-        ConsoleLogger.debug(TAG, MESSAGE, Metadata(), null)
+        ConsoleLogger.debug(TAG, MESSAGE, buildMetadata(), null)
         val logString = testOutBuffer.toString(UTF8)
         assertTrue(TAG in logString)
         assertTrue(MESSAGE in logString)
@@ -69,7 +70,7 @@ class ConsoleLoggerTests {
     @Test
     fun checkDebugWithThrowable() {
         val throwable = Throwable()
-        ConsoleLogger.debug(TAG, MESSAGE, Metadata(), throwable)
+        ConsoleLogger.debug(TAG, MESSAGE, buildMetadata(), throwable)
         val logString = testOutBuffer.toString(UTF8)
         assertTrue(TAG in logString)
         assertTrue(MESSAGE in logString)
@@ -78,7 +79,7 @@ class ConsoleLoggerTests {
 
     @Test
     fun checkInfoWithoutThrowable() {
-        ConsoleLogger.info(TAG, MESSAGE, Metadata(), null)
+        ConsoleLogger.info(TAG, MESSAGE, buildMetadata(), null)
         val logString = testOutBuffer.toString(UTF8)
         assertTrue(TAG in logString)
         assertTrue(MESSAGE in logString)
@@ -87,7 +88,7 @@ class ConsoleLoggerTests {
     @Test
     fun checkInfoWithThrowable() {
         val throwable = Throwable()
-        ConsoleLogger.info(TAG, MESSAGE, Metadata(), throwable)
+        ConsoleLogger.info(TAG, MESSAGE, buildMetadata(), throwable)
         val logString = testOutBuffer.toString(UTF8)
         assertTrue(TAG in logString)
         assertTrue(MESSAGE in logString)
@@ -96,7 +97,7 @@ class ConsoleLoggerTests {
 
     @Test
     fun checkWarnWithoutThrowable() {
-        ConsoleLogger.warn(TAG, MESSAGE, Metadata(), null)
+        ConsoleLogger.warn(TAG, MESSAGE, buildMetadata(), null)
         val logString = testOutBuffer.toString(UTF8)
         assertTrue(TAG in logString)
         assertTrue(MESSAGE in logString)
@@ -105,7 +106,7 @@ class ConsoleLoggerTests {
     @Test
     fun checkWarnWithThrowable() {
         val throwable = Throwable()
-        ConsoleLogger.warn(TAG, MESSAGE, Metadata(), throwable)
+        ConsoleLogger.warn(TAG, MESSAGE, buildMetadata(), throwable)
         val logString = testOutBuffer.toString(UTF8)
         assertTrue(TAG in logString)
         assertTrue(MESSAGE in logString)
@@ -114,7 +115,7 @@ class ConsoleLoggerTests {
 
     @Test
     fun checkErrorWithoutThrowable() {
-        ConsoleLogger.error(TAG, MESSAGE, Metadata(), null)
+        ConsoleLogger.error(TAG, MESSAGE, buildMetadata(), null)
         val logString = testErrBuffer.toString(UTF8)
         assertTrue(TAG in logString)
         assertTrue(MESSAGE in logString)
@@ -123,7 +124,7 @@ class ConsoleLoggerTests {
     @Test
     fun checkErrorWithThrowable() {
         val throwable = Throwable()
-        ConsoleLogger.error(TAG, MESSAGE, Metadata(), throwable)
+        ConsoleLogger.error(TAG, MESSAGE, buildMetadata(), throwable)
         val logString = testErrBuffer.toString(UTF8)
         assertTrue(TAG in logString)
         assertTrue(MESSAGE in logString)
@@ -132,7 +133,7 @@ class ConsoleLoggerTests {
 
     @Test
     fun checkAssertWithoutThrowable() {
-        ConsoleLogger.assert(TAG, MESSAGE, Metadata(), null)
+        ConsoleLogger.assert(TAG, MESSAGE, buildMetadata(), null)
         val logString = testErrBuffer.toString(UTF8)
         assertTrue(TAG in logString)
         assertTrue(MESSAGE in logString)
@@ -141,7 +142,7 @@ class ConsoleLoggerTests {
     @Test
     fun checkAssertWithThrowable() {
         val throwable = Throwable()
-        ConsoleLogger.assert(TAG, MESSAGE, Metadata(), throwable)
+        ConsoleLogger.assert(TAG, MESSAGE, buildMetadata(), throwable)
         val logString = testErrBuffer.toString(UTF8)
         assertTrue(TAG in logString)
         assertTrue(MESSAGE in logString)

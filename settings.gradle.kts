@@ -17,4 +17,5 @@ include(
     "khronicle-android",
     "khronicle-core",
     "khronicle-ktor-client",
+    "khronicle-test",
 )

@@ -1,5 +1,6 @@
 package com.juul.khronicle
 
+import com.juul.khronicle.test.CallListLogger
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.engine.mock.MockEngine

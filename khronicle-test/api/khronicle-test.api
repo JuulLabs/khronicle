@@ -1,0 +1,36 @@
+public final class com/juul/khronicle/test/BuildMetadataKt {
+	public static final fun buildMetadata (Lkotlin/jvm/functions/Function1;)Lcom/juul/khronicle/ReadMetadata;
+	public static synthetic fun buildMetadata$default (Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lcom/juul/khronicle/ReadMetadata;
+}
+
+public final class com/juul/khronicle/test/Call {
+	public fun <init> (Lcom/juul/khronicle/LogLevel;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;Lcom/juul/khronicle/ReadMetadata;)V
+	public final fun component1 ()Lcom/juul/khronicle/LogLevel;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/Throwable;
+	public final fun component5 ()Lcom/juul/khronicle/ReadMetadata;
+	public final fun copy (Lcom/juul/khronicle/LogLevel;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;Lcom/juul/khronicle/ReadMetadata;)Lcom/juul/khronicle/test/Call;
+	public static synthetic fun copy$default (Lcom/juul/khronicle/test/Call;Lcom/juul/khronicle/LogLevel;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;Lcom/juul/khronicle/ReadMetadata;ILjava/lang/Object;)Lcom/juul/khronicle/test/Call;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getLevel ()Lcom/juul/khronicle/LogLevel;
+	public final fun getMessage ()Ljava/lang/String;
+	public final fun getMetadata ()Lcom/juul/khronicle/ReadMetadata;
+	public final fun getTag ()Ljava/lang/String;
+	public final fun getThrowable ()Ljava/lang/Throwable;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public class com/juul/khronicle/test/CallListLogger : com/juul/khronicle/SimpleLogger {
+	public fun <init> ()V
+	public final fun getAllCalls ()Ljava/util/List;
+	public final fun getAssertCalls ()Ljava/util/List;
+	public final fun getDebugCalls ()Ljava/util/List;
+	public final fun getErrorCalls ()Ljava/util/List;
+	public final fun getInfoCalls ()Ljava/util/List;
+	public final fun getVerboseCalls ()Ljava/util/List;
+	public final fun getWarnCalls ()Ljava/util/List;
+	public fun log (Lcom/juul/khronicle/LogLevel;Ljava/lang/String;Ljava/lang/String;Lcom/juul/khronicle/ReadMetadata;Ljava/lang/Throwable;)V
+}
+

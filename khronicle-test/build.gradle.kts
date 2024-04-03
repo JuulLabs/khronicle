@@ -18,6 +18,7 @@ kotlin {
     jvm()
     macosArm64()
     macosX64()
+    wasmJs().browser()
 
     sourceSets {
         all {
@@ -25,16 +26,7 @@ kotlin {
         }
 
         commonMain.dependencies {
-            api(libs.ktor.core)
-            api(libs.ktor.logging)
             api(projects.khronicleCore)
-        }
-
-        commonTest.dependencies {
-            implementation(kotlin("test"))
-            implementation(projects.khronicleTest)
-            implementation(libs.kotlinx.coroutines.test)
-            implementation(libs.ktor.mock)
         }
     }
 }

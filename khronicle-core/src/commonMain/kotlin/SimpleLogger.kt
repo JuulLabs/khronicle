@@ -1,6 +1,10 @@
 package com.juul.khronicle
 
-/** Simplified [Logger] which can log all */
+/**
+ * Simplified [Logger] which passes all logs through a single [log] function that accepts an
+ * additional [LogLevel] argument. This is particularly useful when a logging backend does not have
+ * separate function calls for each log level.
+ */
 public abstract class SimpleLogger : Logger {
 
     final override fun verbose(tag: String, message: String, metadata: ReadMetadata, throwable: Throwable?) {

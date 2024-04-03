@@ -1,5 +1,6 @@
 package com.juul.khronicle
 
+import com.juul.khronicle.test.CallListLogger
 import kotlin.test.AfterTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -207,8 +208,8 @@ class LogTests {
     fun verbose_withMetadata_canReadInLogger() {
         Log.tagGenerator = failTestTagGenerator
         val logger = object : CallListLogger() {
-            override fun verbose(tag: String, message: String, metadata: ReadMetadata, throwable: Throwable?) {
-                super.verbose(tag, message, metadata, throwable)
+            override fun log(level: LogLevel, tag: String, message: String, metadata: ReadMetadata, throwable: Throwable?) {
+                super.log(level, tag, message, metadata, throwable)
                 assertEquals("test", metadata[StringKey])
             }
         }
@@ -217,6 +218,8 @@ class LogTests {
             metadata[StringKey] = "test"
             "Test message"
         }
+        // Double-checks that the `log` function containing the assert
+        assertEquals(1, logger.verboseCalls.size)
     }
 
     @Test

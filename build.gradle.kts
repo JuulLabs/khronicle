@@ -63,6 +63,10 @@ tasks.dokkaHtmlMultiModule.configure {
     outputDirectory.fileProvider(layout.buildDirectory.file("dokkaHtmlMultiModule").map { it.asFile })
 }
 
+apiValidation {
+    nonPublicMarkers.add("com.juul.khronicle.KhronicleInternal")
+}
+
 fun Project.withPluginWhenEvaluated(plugin: String, action: Project.() -> Unit) {
     pluginManager.withPlugin(plugin) { whenEvaluated(action) }
 }
