@@ -1,7 +1,7 @@
 package com.juul.khronicle
 
 /** Classes which implement [Logger] can write logs. */
-public interface Logger {
+public interface Logger : HideFromStackTraceTag {
 
     /** Minimum level for this logger. Defaults to [LogLevel.Verbose] (all logs) if not overwritten. */
     public val minimumLogLevel: LogLevel
@@ -24,4 +24,15 @@ public interface Logger {
 
     /** Log at assert-level. Do not store a reference to [metadata], create a [copy][ReadMetadata.copy] if you need to. */
     public fun assert(tag: String, message: String, metadata: ReadMetadata, throwable: Throwable?)
+}
+
+public fun Logger.dynamic(level: LogLevel, tag: String, message: String, metadata: ReadMetadata, throwable: Throwable?) {
+    when (level) {
+        LogLevel.Verbose -> verbose(tag, message, metadata, throwable)
+        LogLevel.Debug -> debug(tag, message, metadata, throwable)
+        LogLevel.Info -> info(tag, message, metadata, throwable)
+        LogLevel.Warn -> warn(tag, message, metadata, throwable)
+        LogLevel.Error -> error(tag, message, metadata, throwable)
+        LogLevel.Assert -> assert(tag, message, metadata, throwable)
+    }
 }

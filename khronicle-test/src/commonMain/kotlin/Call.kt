@@ -1,6 +1,9 @@
-package com.juul.khronicle
+package com.juul.khronicle.test
 
-@KhronicleInternal
+import com.juul.khronicle.LogLevel
+import com.juul.khronicle.ReadMetadata
+
+/** The arguments passed to [CallListLogger.log]. */
 public data class Call(
     val level: LogLevel,
     val tag: String,
