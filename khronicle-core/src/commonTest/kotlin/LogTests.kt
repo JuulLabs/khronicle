@@ -218,7 +218,8 @@ class LogTests {
             metadata[StringKey] = "test"
             "Test message"
         }
-        // Double-checks that the `log` function containing the assert
+        // When doing the pattern of asserting inside of a callback, it's easy to accidentally not call the callback.
+        // This line verifies that `logger.log` is actually called, and therefore the test actually contained an assert.
         assertEquals(1, logger.verboseCalls.size)
     }
 
