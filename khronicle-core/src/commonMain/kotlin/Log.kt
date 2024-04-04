@@ -2,9 +2,7 @@ package com.juul.khronicle
 
 import com.juul.khronicle.Log.dispatcher
 import kotlinx.atomicfu.atomic
-import kotlin.native.concurrent.ThreadLocal
 
-@ThreadLocal // Thread local pool means that metadata returned from it are safe to mutate on that same thread.
 private val metadataPool = Pool(factory = ::Metadata, refurbish = Metadata::clear)
 
 /** Global logging object. To receive logs, call [dispatcher].[install][DispatchLogger.install]. */
