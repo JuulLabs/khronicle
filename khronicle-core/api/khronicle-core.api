@@ -140,6 +140,10 @@ public abstract class com/juul/khronicle/SimpleLogger : com/juul/khronicle/Logge
 	public final fun warn (Ljava/lang/String;Ljava/lang/String;Lcom/juul/khronicle/ReadMetadata;Ljava/lang/Throwable;)V
 }
 
+public final class com/juul/khronicle/SynchronizedLoggerKt {
+	public static final fun synchronized (Lcom/juul/khronicle/Logger;)Lcom/juul/khronicle/Logger;
+}
+
 public abstract interface class com/juul/khronicle/TagGenerator {
 	public abstract fun getTag ()Ljava/lang/String;
 }
