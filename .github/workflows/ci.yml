@@ -12,24 +12,20 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: gradle/wrapper-validation-action@v3
       - uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '17'
-
-      - name: assemble
-        uses: gradle/gradle-build-action@v3
+      - uses: gradle/actions/setup-gradle@v3
         with:
-          arguments: assemble check jacocoTestReport
+          validate-wrappers: true
+
+      - run: ./gradlew assemble
+      - run: ./gradlew check
+      - run: ./gradlew jacocoTestReport
 
       - uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
 
-      - name: publishToMavenLocal
-        uses: gradle/gradle-build-action@v3
-        with:
-          arguments: |
-            -PRELEASE_SIGNING_ENABLED=false
-            publishToMavenLocal
+      - run: ./gradlew -PRELEASE_SIGNING_ENABLED=false publishToMavenLocal
