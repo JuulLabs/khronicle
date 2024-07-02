@@ -6,4 +6,6 @@ internal object StringKey : Key<String>
 
 internal object BooleanKey : Key<Boolean>
 
-internal data class DynamicKey(val value: String) : Key<String>
+internal data class DynamicKey(
+    val value: String,
+) : Key<String>

@@ -13,7 +13,8 @@ class FilterLoggerTests {
     fun verbose_whenDenied_doesNotCallInner() {
         val inner = CallListLogger()
         val throwable = Throwable()
-        inner.withFilter { _, _, _, _ -> false }
+        inner
+            .withFilter { _, _, _, _ -> false }
             .verbose("tag", "message", buildMetadata(), throwable)
         assertTrue(inner.verboseCalls.isEmpty())
     }
@@ -22,7 +23,8 @@ class FilterLoggerTests {
     fun verbose_whenPermitted_callsInnerWithSameArguments() {
         val inner = CallListLogger()
         val throwable = Throwable()
-        inner.withFilter { _, _, _, _ -> true }
+        inner
+            .withFilter { _, _, _, _ -> true }
             .verbose("tag", "message", buildMetadata(), throwable)
         val call = inner.verboseCalls.single()
         assertEquals("tag", call.tag)
@@ -35,7 +37,8 @@ class FilterLoggerTests {
     fun debug_whenDenied_doesNotCallInner() {
         val inner = CallListLogger()
         val throwable = Throwable()
-        inner.withFilter { _, _, _, _ -> false }
+        inner
+            .withFilter { _, _, _, _ -> false }
             .debug("tag", "message", buildMetadata(), throwable)
         assertTrue(inner.debugCalls.isEmpty())
     }
@@ -44,7 +47,8 @@ class FilterLoggerTests {
     fun debug_whenPermitted_callsInnerWithSameArguments() {
         val inner = CallListLogger()
         val throwable = Throwable()
-        inner.withFilter { _, _, _, _ -> true }
+        inner
+            .withFilter { _, _, _, _ -> true }
             .debug("tag", "message", buildMetadata(), throwable)
         val call = inner.debugCalls.single()
         assertEquals("tag", call.tag)
@@ -57,7 +61,8 @@ class FilterLoggerTests {
     fun info_whenDenied_doesNotCallInner() {
         val inner = CallListLogger()
         val throwable = Throwable()
-        inner.withFilter { _, _, _, _ -> false }
+        inner
+            .withFilter { _, _, _, _ -> false }
             .info("tag", "message", buildMetadata(), throwable)
         assertTrue(inner.infoCalls.isEmpty())
     }
@@ -66,7 +71,8 @@ class FilterLoggerTests {
     fun info_whenPermitted_callsInnerWithSameArguments() {
         val inner = CallListLogger()
         val throwable = Throwable()
-        inner.withFilter { _, _, _, _ -> true }
+        inner
+            .withFilter { _, _, _, _ -> true }
             .info("tag", "message", buildMetadata(), throwable)
         val call = inner.infoCalls.single()
         assertEquals("tag", call.tag)
@@ -79,7 +85,8 @@ class FilterLoggerTests {
     fun warn_whenDenied_doesNotCallInner() {
         val inner = CallListLogger()
         val throwable = Throwable()
-        inner.withFilter { _, _, _, _ -> false }
+        inner
+            .withFilter { _, _, _, _ -> false }
             .warn("tag", "message", buildMetadata(), throwable)
         assertTrue(inner.warnCalls.isEmpty())
     }
@@ -88,7 +95,8 @@ class FilterLoggerTests {
     fun warn_whenPermitted_callsInnerWithSameArguments() {
         val inner = CallListLogger()
         val throwable = Throwable()
-        inner.withFilter { _, _, _, _ -> true }
+        inner
+            .withFilter { _, _, _, _ -> true }
             .warn("tag", "message", buildMetadata(), throwable)
         val call = inner.warnCalls.single()
         assertEquals("tag", call.tag)
@@ -101,7 +109,8 @@ class FilterLoggerTests {
     fun error_whenDenied_doesNotCallInner() {
         val inner = CallListLogger()
         val throwable = Throwable()
-        inner.withFilter { _, _, _, _ -> false }
+        inner
+            .withFilter { _, _, _, _ -> false }
             .error("tag", "message", buildMetadata(), throwable)
         assertTrue(inner.errorCalls.isEmpty())
     }
@@ -110,7 +119,8 @@ class FilterLoggerTests {
     fun error_whenPermitted_callsInnerWithSameArguments() {
         val inner = CallListLogger()
         val throwable = Throwable()
-        inner.withFilter { _, _, _, _ -> true }
+        inner
+            .withFilter { _, _, _, _ -> true }
             .error("tag", "message", buildMetadata(), throwable)
         val call = inner.errorCalls.single()
         assertEquals("tag", call.tag)
@@ -123,7 +133,8 @@ class FilterLoggerTests {
     fun assert_whenDenied_doesNotCallInner() {
         val inner = CallListLogger()
         val throwable = Throwable()
-        inner.withFilter { _, _, _, _ -> false }
+        inner
+            .withFilter { _, _, _, _ -> false }
             .assert("tag", "message", buildMetadata(), throwable)
         assertTrue(inner.assertCalls.isEmpty())
     }
@@ -132,7 +143,8 @@ class FilterLoggerTests {
     fun assert_whenPermitted_callsInnerWithSameArguments() {
         val inner = CallListLogger()
         val throwable = Throwable()
-        inner.withFilter { _, _, _, _ -> true }
+        inner
+            .withFilter { _, _, _, _ -> true }
             .assert("tag", "message", buildMetadata(), throwable)
         val call = inner.assertCalls.single()
         assertEquals("tag", call.tag)

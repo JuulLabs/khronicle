@@ -3,7 +3,9 @@ package com.juul.khronicle
 import kotlin.reflect.KClass
 
 @KhronicleInternal
-public class Metadata : ReadMetadata, WriteMetadata {
+public class Metadata :
+    ReadMetadata,
+    WriteMetadata {
     private val storedData = mutableMapOf<Key<*>, Any>()
 
     @Suppress("UNCHECKED_CAST")
