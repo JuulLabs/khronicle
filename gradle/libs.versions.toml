@@ -6,7 +6,7 @@ kotlin = "2.0.0"
 ktor = "2.3.12"
 
 [libraries]
-atomicfu = { module = "org.jetbrains.kotlinx:atomicfu-gradle-plugin", version = "0.24.0" }
+atomicfu = { module = "org.jetbrains.kotlinx:atomicfu-gradle-plugin", version = "0.25.0" }
 kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version = "1.8.1" }
 ktor-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
