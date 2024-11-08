@@ -19,7 +19,15 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
 
       - run: ./gradlew assemble
+
       - run: ./gradlew check
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: build-reports
+          path: '**/build/reports/*'
+          retention-days: 5
+
       - run: ./gradlew jacocoTestReport
 
       - uses: codecov/codecov-action@v4
