@@ -32,4 +32,8 @@ android {
         disable += "AndroidGradlePluginVersion"
         disable += "GradleDependency"
     }
+
+    dependencies {
+        lintPublish(projects.khronicleAndroidLint)
+    }
 }

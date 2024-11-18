@@ -17,6 +17,7 @@ plugins {
 
 include(
     "khronicle-android",
+    "khronicle-android-lint",
     "khronicle-core",
     "khronicle-ktor-client",
     "khronicle-test",

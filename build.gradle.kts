@@ -62,6 +62,7 @@ tasks.dokkaHtmlMultiModule.configure {
 
 apiValidation {
     nonPublicMarkers.add("com.juul.khronicle.KhronicleInternal")
+    ignoredProjects += "khronicle-android-lint"
 }
 
 fun Project.withPluginWhenEvaluated(plugin: String, action: Project.() -> Unit) {
