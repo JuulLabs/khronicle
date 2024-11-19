@@ -1,6 +1,7 @@
 plugins {
-    id("com.android.lint")
     kotlin("jvm")
+    id("com.android.lint")
+    id("com.vanniktech.maven.publish")
     id("org.jmailen.kotlinter")
 }
 
