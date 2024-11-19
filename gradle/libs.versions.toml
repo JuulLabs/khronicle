@@ -9,7 +9,6 @@ ktor = "3.0.1"
 
 [libraries]
 android-lint-api = { module = "com.android.tools.lint:lint-api", version.ref = "android-tools" }
-android-lint-core = { module = "com.android.tools.lint:lint", version.ref = "android-tools" }
 android-lint-test = { module = "com.android.tools.lint:lint-tests", version.ref = "android-tools" }
 junit = "junit:junit:4.13.2"
 kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version = "1.9.0" }
