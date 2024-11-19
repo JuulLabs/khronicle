@@ -7,7 +7,7 @@ import org.junit.Test
 
 class WrongLogUsageDetectorTest {
     @Test
-    fun usingAndroidLogWithTwoArguments() {
+    fun usingAndroidLogWithTwoArgumentsFromJava() {
         lint()
             .files(
                 java(
@@ -21,6 +21,39 @@ class WrongLogUsageDetectorTest {
                     }
                     """,
                 ).indented(),
+                java(ANDROID_LOG_STUB),
+            ).issues(WrongLogUsageDetector.ISSUE_LOG)
+            .allowMissingSdk()
+            .run()
+            .expect(
+                """
+                |src/foo/Example.java:5: Warning: Using 'android.util.Log' instead of 'com.juul.khronicle.Log' [LogNotKhronicle]
+                |    Log.d("TAG", "msg");
+                |    ~~~~~~~~~~~~~~~~~~~
+                |0 errors, 1 warnings
+                """.trimMargin(),
+            ).expectFixDiffs(
+                """
+                |Fix for src/foo/Example.java line 5: Replace with com.juul.khronicle.Log.debug(tag = "TAG") { "msg" }:
+                |@@ -3 +3
+                |+ import com.juul.khronicle.Log;
+                |@@ -5 +6
+                |-     Log.d("TAG", "msg");
+                |+     Log.debug(tag = "TAG") { "msg" };
+                |Fix for src/foo/Example.java line 5: Replace with com.juul.khronicle.Log.debug { "msg" }:
+                |@@ -3 +3
+                |+ import com.juul.khronicle.Log;
+                |@@ -5 +6
+                |-     Log.d("TAG", "msg");
+                |+     Log.debug { "msg" };
+                """.trimMargin(),
+            )
+    }
+
+    @Test
+    fun usingAndroidLogWithTwoArgumentsFromKotlin() {
+        lint()
+            .files(
                 java(ANDROID_LOG_STUB),
                 kotlin(
                     """
@@ -38,28 +71,13 @@ class WrongLogUsageDetectorTest {
             .run()
             .expect(
                 """
-                |src/foo/Example.java:5: Warning: Using 'android.util.Log' instead of 'com.juul.khronicle.Log' [LogNotKhronicle]
-                |    Log.d("TAG", "msg");
-                |    ~~~~~~~~~~~~~~~~~~~
                 |src/foo/Example.kt:5: Warning: Using 'android.util.Log' instead of 'com.juul.khronicle.Log' [LogNotKhronicle]
                 |    Log.d("TAG", "msg")
                 |    ~~~~~~~~~~~~~~~~~~~
-                |0 errors, 2 warnings
+                |0 errors, 1 warnings
                 """.trimMargin(),
             ).expectFixDiffs(
                 """
-                |Fix for src/foo/Example.java line 5: Replace with com.juul.khronicle.Log.debug(tag = "TAG") { "msg" }:
-                |@@ -3 +3
-                |+ import com.juul.khronicle.Log;
-                |@@ -5 +6
-                |-     Log.d("TAG", "msg");
-                |+     Log.debug(tag = "TAG") { "msg" };
-                |Fix for src/foo/Example.java line 5: Replace with com.juul.khronicle.Log.debug { "msg" }:
-                |@@ -3 +3
-                |+ import com.juul.khronicle.Log;
-                |@@ -5 +6
-                |-     Log.d("TAG", "msg");
-                |+     Log.debug { "msg" };
                 |Fix for src/foo/Example.kt line 5: Replace with com.juul.khronicle.Log.debug(tag = "TAG") { "msg" }:
                 |@@ -3 +3
                 |+ import com.juul.khronicle.Log
@@ -77,7 +95,7 @@ class WrongLogUsageDetectorTest {
     }
 
     @Test
-    fun usingAndroidLogWithThreeArguments() {
+    fun usingAndroidLogWithThreeArgumentsFromJava() {
         lint()
             .files(
                 java(
@@ -91,6 +109,39 @@ class WrongLogUsageDetectorTest {
                     }
                     """,
                 ).indented(),
+                java(ANDROID_LOG_STUB),
+            ).issues(WrongLogUsageDetector.ISSUE_LOG)
+            .allowMissingSdk()
+            .run()
+            .expect(
+                """
+                |src/foo/Example.java:5: Warning: Using 'android.util.Log' instead of 'com.juul.khronicle.Log' [LogNotKhronicle]
+                |    Log.d("TAG", "msg", new Exception());
+                |    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                |0 errors, 1 warnings
+                """.trimMargin(),
+            ).expectFixDiffs(
+                """
+                |Fix for src/foo/Example.java line 5: Replace with com.juul.khronicle.Log.debug(tag = "TAG", throwable = new Exception()) { "msg" }:
+                |@@ -3 +3
+                |+ import com.juul.khronicle.Log;
+                |@@ -5 +6
+                |-     Log.d("TAG", "msg", new Exception());
+                |+     Log.debug(tag = "TAG", throwable = new Exception()) { "msg" };
+                |Fix for src/foo/Example.java line 5: Replace with com.juul.khronicle.Log.debug(throwable = new Exception()) { "msg" }:
+                |@@ -3 +3
+                |+ import com.juul.khronicle.Log;
+                |@@ -5 +6
+                |-     Log.d("TAG", "msg", new Exception());
+                |+     Log.debug(throwable = new Exception()) { "msg" };
+                """.trimMargin(),
+            )
+    }
+
+    @Test
+    fun usingAndroidLogWithThreeArgumentsFromKotlin() {
+        lint()
+            .files(
                 java(ANDROID_LOG_STUB),
                 kotlin(
                     """
@@ -108,28 +159,13 @@ class WrongLogUsageDetectorTest {
             .run()
             .expect(
                 """
-                |src/foo/Example.java:5: Warning: Using 'android.util.Log' instead of 'com.juul.khronicle.Log' [LogNotKhronicle]
-                |    Log.d("TAG", "msg", new Exception());
-                |    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 |src/foo/Example.kt:5: Warning: Using 'android.util.Log' instead of 'com.juul.khronicle.Log' [LogNotKhronicle]
                 |    Log.d("TAG", "msg", Exception())
                 |    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-                |0 errors, 2 warnings
+                |0 errors, 1 warnings
                 """.trimMargin(),
             ).expectFixDiffs(
                 """
-                |Fix for src/foo/Example.java line 5: Replace with com.juul.khronicle.Log.debug(tag = "TAG", throwable = new Exception()) { "msg" }:
-                |@@ -3 +3
-                |+ import com.juul.khronicle.Log;
-                |@@ -5 +6
-                |-     Log.d("TAG", "msg", new Exception());
-                |+     Log.debug(tag = "TAG", throwable = new Exception()) { "msg" };
-                |Fix for src/foo/Example.java line 5: Replace with com.juul.khronicle.Log.debug(throwable = new Exception()) { "msg" }:
-                |@@ -3 +3
-                |+ import com.juul.khronicle.Log;
-                |@@ -5 +6
-                |-     Log.d("TAG", "msg", new Exception());
-                |+     Log.debug(throwable = new Exception()) { "msg" };
                 |Fix for src/foo/Example.kt line 5: Replace with com.juul.khronicle.Log.debug(tag = "TAG", throwable = Exception()) { "msg" }:
                 |@@ -3 +3
                 |+ import com.juul.khronicle.Log
@@ -147,7 +183,7 @@ class WrongLogUsageDetectorTest {
     }
 
     @Test
-    fun usingFullyQualifiedAndroidLogWithTwoArguments() {
+    fun usingFullyQualifiedAndroidLogWithTwoArgumentsFromJava() {
         lint()
             .files(
                 java(
@@ -160,6 +196,39 @@ class WrongLogUsageDetectorTest {
                     }
                     """,
                 ).indented(),
+                java(ANDROID_LOG_STUB),
+            ).issues(WrongLogUsageDetector.ISSUE_LOG)
+            .allowMissingSdk()
+            .run()
+            .expect(
+                """
+                |src/foo/Example.java:4: Warning: Using 'android.util.Log' instead of 'com.juul.khronicle.Log' [LogNotKhronicle]
+                |    android.util.Log.d("TAG", "msg");
+                |    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                |0 errors, 1 warnings
+                """.trimMargin(),
+            ).expectFixDiffs(
+                """
+                |Fix for src/foo/Example.java line 4: Replace with com.juul.khronicle.Log.debug(tag = "TAG") { "msg" }:
+                |@@ -2 +2
+                |+ import com.juul.khronicle.Log;
+                |@@ -4 +5
+                |-     android.util.Log.d("TAG", "msg");
+                |+     Log.debug(tag = "TAG") { "msg" };
+                |Fix for src/foo/Example.java line 4: Replace with com.juul.khronicle.Log.debug { "msg" }:
+                |@@ -2 +2
+                |+ import com.juul.khronicle.Log;
+                |@@ -4 +5
+                |-     android.util.Log.d("TAG", "msg");
+                |+     Log.debug { "msg" };
+                """.trimMargin(),
+            )
+    }
+
+    @Test
+    fun usingFullyQualifiedAndroidLogWithTwoArgumentsFromKotlin() {
+        lint()
+            .files(
                 java(ANDROID_LOG_STUB),
                 kotlin(
                     """
@@ -176,28 +245,13 @@ class WrongLogUsageDetectorTest {
             .run()
             .expect(
                 """
-                |src/foo/Example.java:4: Warning: Using 'android.util.Log' instead of 'com.juul.khronicle.Log' [LogNotKhronicle]
-                |    android.util.Log.d("TAG", "msg");
-                |    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 |src/foo/Example.kt:4: Warning: Using 'android.util.Log' instead of 'com.juul.khronicle.Log' [LogNotKhronicle]
                 |    android.util.Log.d("TAG", "msg")
                 |    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-                |0 errors, 2 warnings
+                |0 errors, 1 warnings
                 """.trimMargin(),
             ).expectFixDiffs(
                 """
-                |Fix for src/foo/Example.java line 4: Replace with com.juul.khronicle.Log.debug(tag = "TAG") { "msg" }:
-                |@@ -2 +2
-                |+ import com.juul.khronicle.Log;
-                |@@ -4 +5
-                |-     android.util.Log.d("TAG", "msg");
-                |+     Log.debug(tag = "TAG") { "msg" };
-                |Fix for src/foo/Example.java line 4: Replace with com.juul.khronicle.Log.debug { "msg" }:
-                |@@ -2 +2
-                |+ import com.juul.khronicle.Log;
-                |@@ -4 +5
-                |-     android.util.Log.d("TAG", "msg");
-                |+     Log.debug { "msg" };
                 |Fix for src/foo/Example.kt line 4: Replace with com.juul.khronicle.Log.debug(tag = "TAG") { "msg" }:
                 |@@ -2 +2
                 |+ import com.juul.khronicle.Log
@@ -215,7 +269,7 @@ class WrongLogUsageDetectorTest {
     }
 
     @Test
-    fun usingFullyQualifiedAndroidLogWithThreeArguments() {
+    fun usingFullyQualifiedAndroidLogWithThreeArgumentsFromJava() {
         lint()
             .files(
                 java(
@@ -228,6 +282,39 @@ class WrongLogUsageDetectorTest {
                     }
                     """,
                 ).indented(),
+                java(ANDROID_LOG_STUB),
+            ).issues(WrongLogUsageDetector.ISSUE_LOG)
+            .allowMissingSdk()
+            .run()
+            .expect(
+                """
+                |src/foo/Example.java:4: Warning: Using 'android.util.Log' instead of 'com.juul.khronicle.Log' [LogNotKhronicle]
+                |    android.util.Log.d("TAG", "msg", new Exception());
+                |    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                |0 errors, 1 warnings
+                """.trimMargin(),
+            ).expectFixDiffs(
+                """
+                |Fix for src/foo/Example.java line 4: Replace with com.juul.khronicle.Log.debug(tag = "TAG", throwable = new Exception()) { "msg" }:
+                |@@ -2 +2
+                |+ import com.juul.khronicle.Log;
+                |@@ -4 +5
+                |-     android.util.Log.d("TAG", "msg", new Exception());
+                |+     Log.debug(tag = "TAG", throwable = new Exception()) { "msg" };
+                |Fix for src/foo/Example.java line 4: Replace with com.juul.khronicle.Log.debug(throwable = new Exception()) { "msg" }:
+                |@@ -2 +2
+                |+ import com.juul.khronicle.Log;
+                |@@ -4 +5
+                |-     android.util.Log.d("TAG", "msg", new Exception());
+                |+     Log.debug(throwable = new Exception()) { "msg" };
+                """.trimMargin(),
+            )
+    }
+
+    @Test
+    fun usingFullyQualifiedAndroidLogWithThreeArgumentsFromKotlin() {
+        lint()
+            .files(
                 java(ANDROID_LOG_STUB),
                 kotlin(
                     """
@@ -244,28 +331,13 @@ class WrongLogUsageDetectorTest {
             .run()
             .expect(
                 """
-                |src/foo/Example.java:4: Warning: Using 'android.util.Log' instead of 'com.juul.khronicle.Log' [LogNotKhronicle]
-                |    android.util.Log.d("TAG", "msg", new Exception());
-                |    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 |src/foo/Example.kt:4: Warning: Using 'android.util.Log' instead of 'com.juul.khronicle.Log' [LogNotKhronicle]
                 |    android.util.Log.d("TAG", "msg", Exception())
                 |    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-                |0 errors, 2 warnings
+                |0 errors, 1 warnings
                 """.trimMargin(),
             ).expectFixDiffs(
                 """
-                |Fix for src/foo/Example.java line 4: Replace with com.juul.khronicle.Log.debug(tag = "TAG", throwable = new Exception()) { "msg" }:
-                |@@ -2 +2
-                |+ import com.juul.khronicle.Log;
-                |@@ -4 +5
-                |-     android.util.Log.d("TAG", "msg", new Exception());
-                |+     Log.debug(tag = "TAG", throwable = new Exception()) { "msg" };
-                |Fix for src/foo/Example.java line 4: Replace with com.juul.khronicle.Log.debug(throwable = new Exception()) { "msg" }:
-                |@@ -2 +2
-                |+ import com.juul.khronicle.Log;
-                |@@ -4 +5
-                |-     android.util.Log.d("TAG", "msg", new Exception());
-                |+     Log.debug(throwable = new Exception()) { "msg" };
                 |Fix for src/foo/Example.kt line 4: Replace with com.juul.khronicle.Log.debug(tag = "TAG", throwable = Exception()) { "msg" }:
                 |@@ -2 +2
                 |+ import com.juul.khronicle.Log
