@@ -1,3 +1,6 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile
+
 plugins {
     kotlin("multiplatform")
     alias(libs.plugins.atomicfu)
@@ -8,7 +11,6 @@ plugins {
 
 kotlin {
     explicitApi()
-    jvmToolchain(libs.versions.jvm.toolchain.get().toInt())
 
     iosArm64()
     iosSimulatorArm64()
@@ -28,4 +30,8 @@ kotlin {
             api(projects.khronicleCore)
         }
     }
+}
+
+tasks.withType<KotlinJvmCompile>().configureEach {
+    compilerOptions.jvmTarget.set(JvmTarget.fromTarget(libs.versions.jvm.target.get()))
 }
