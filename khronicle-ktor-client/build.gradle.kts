@@ -11,21 +11,6 @@ plugins {
     id("com.vanniktech.maven.publish")
 }
 
-android {
-    compileSdk = libs.versions.android.compile.get().toInt()
-    defaultConfig.minSdk = 16
-
-    namespace = "com.juul.khronicle.ktor"
-
-    lint {
-        abortOnError = true
-        warningsAsErrors = true
-
-        disable += "AndroidGradlePluginVersion"
-        disable += "GradleDependency"
-    }
-}
-
 kotlin {
     explicitApi()
 
@@ -55,6 +40,21 @@ kotlin {
             implementation(libs.kotlinx.coroutines.test)
             implementation(libs.ktor.mock)
         }
+    }
+}
+
+android {
+    compileSdk = libs.versions.android.compile.get().toInt()
+    defaultConfig.minSdk = 16
+
+    namespace = "com.juul.khronicle.ktor"
+
+    lint {
+        abortOnError = true
+        warningsAsErrors = true
+
+        disable += "AndroidGradlePluginVersion"
+        disable += "GradleDependency"
     }
 }
 
