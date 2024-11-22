@@ -19,8 +19,8 @@ class StackTraceTagGeneratorTests {
 
         /* Examples of `class.java.name`:
          *
-         * | Kotlin | supplier::class.java.name                                                                     |
-         * |--------|-----------------------------------------------------------------------------------------------|
+         * | Kotlin | supplier::class.java.name                                                               |
+         * |--------|-----------------------------------------------------------------------------------------|
          * | 1.4.31 | com.juul.khronicle.StackTraceTagGeneratorTests$tagStripsAnonymousClassNumber$supplier$1 |
          * | 1.5.10 | com.juul.khronicle.StackTraceTagGeneratorTests$$Lambda$4/1813123723                     |
          */
