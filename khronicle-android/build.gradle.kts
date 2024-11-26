@@ -1,3 +1,6 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile
+
 plugins {
     id("com.android.library")
     kotlin("multiplatform")
@@ -8,7 +11,6 @@ plugins {
 
 kotlin {
     explicitApi()
-    jvmToolchain(libs.versions.jvm.toolchain.get().toInt())
 
     androidTarget().publishAllLibraryVariants()
 
@@ -23,7 +25,7 @@ android {
     compileSdk = libs.versions.android.compile.get().toInt()
     defaultConfig.minSdk = 16
 
-    namespace = "com.juul.khronicle"
+    namespace = "com.juul.khronicle.android"
 
     lint {
         abortOnError = true
@@ -36,4 +38,8 @@ android {
     dependencies {
         lintPublish(projects.khronicleAndroidLint)
     }
+}
+
+tasks.withType<KotlinJvmCompile>().configureEach {
+    compilerOptions.jvmTarget.set(JvmTarget.fromTarget(libs.versions.jvm.target.get()))
 }
