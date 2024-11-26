@@ -13,9 +13,6 @@ Add the core Khronicle dependency in your Gradle configuration:
 implementation("com.juul.khronicle:khronicle-core:$version")
 ```
 
-> [!NOTE]
-> The `khronicle-core` artifact provides support for all supported platforms except Android, which requires an additional artifact (see [Android (Logcat)](#android-logcat) section below).
-
 ### Initialization
 
 Logging can be initialized via `install`:
