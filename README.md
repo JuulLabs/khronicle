@@ -5,6 +5,14 @@
 
 Simple and robust Kotlin Multiplatform logging.
 
+### Setup (Gradle)
+
+Add the core Khronicle dependency in your Gradle configuration:
+
+```kotlin
+implementation("com.juul.khronicle:khronicle-core:$version")
+```
+
 ### Initialization
 
 Logging can be initialized via `install`:
@@ -124,5 +132,17 @@ Log.debug { "This block is evaluated, but does not get printed to the console." 
 Log.warn { metadata ->
     metadata[Sensitivity] = Sensitivity.NotSensitive
     "This is also evaluated, and does print to the console."
+}
+```
+
+### Ktor
+
+A basic `KtorLogger` is available via the `com.juul.khronicle:khronicle-ktor-client:$version` artifact:
+
+```kotlin
+HttpClient {
+    install(Logging) {
+        logger = KhronicleKtorClientLogger()
+    }
 }
 ```
