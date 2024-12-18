@@ -5,7 +5,7 @@ android-tools = "31.7.3" # If the AGP version is X.Y.Z, then the Lint library ve
 jacoco = "0.8.7"
 jvm-target = "1.8"
 kotlin = "2.1.0"
-ktor = "3.0.1"
+ktor = "3.0.2"
 
 [libraries]
 android-lint-api = { module = "com.android.tools.lint:lint-api", version.ref = "android-tools" }
