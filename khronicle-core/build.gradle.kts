@@ -29,6 +29,12 @@ kotlin {
             languageSettings.optIn("com.juul.khronicle.KhronicleInternal")
         }
 
+        androidMain.dependencies {
+            // Workaround for AtomicFU plugin not automatically adding JVM dependency for Android.
+            // https://github.com/Kotlin/kotlinx-atomicfu/issues/145
+            implementation(libs.atomicfu)
+        }
+
         androidUnitTest.dependencies {
             implementation(libs.androidx.test.junit)
             implementation(libs.androidx.test.runner)
