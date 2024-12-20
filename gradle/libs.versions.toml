@@ -13,7 +13,7 @@ android-lint-test = { module = "com.android.tools.lint:lint-tests", version.ref 
 androidx-test-junit = "androidx.test.ext:junit:1.2.1"
 androidx-test-runner = "androidx.test:runner:1.6.2"
 junit = "junit:junit:4.13.2"
-kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version = "1.9.0" }
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version = "1.10.1" }
 ktor-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
 ktor-mock = { module = "io.ktor:ktor-client-mock", version.ref = "ktor" }
