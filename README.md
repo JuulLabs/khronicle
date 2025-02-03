@@ -135,9 +135,12 @@ Log.warn { metadata ->
 }
 ```
 
-### Ktor
+### [Ktor]
 
-A basic `KtorLogger` is available via the `com.juul.khronicle:khronicle-ktor-client:$version` artifact:
+A basic [Ktor] [`Logger`] is available via the `com.juul.khronicle:khronicle-ktor-client:$version` artifact.
+
+To route a [Ktor] [`HttpClient`] instance's logs to Khronicle for logging, simply set
+`KhronicleKtorClientLogger` as the [`HttpClient`]'s logger:
 
 ```kotlin
 HttpClient {
@@ -146,3 +149,11 @@ HttpClient {
     }
 }
 ```
+
+This will cause the [`HttpClient`]'s logs to be sent to installed Khronicle log dispatchers
+(that were installed via `Log.dispatcher.install`).
+
+
+[Ktor]: https://ktor.io/
+[`HttpClient`]: https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client/-http-client/index.html
+[`Logger`]: https://api.ktor.io/ktor-utils/io.ktor.util.logging/-logger/index.html
