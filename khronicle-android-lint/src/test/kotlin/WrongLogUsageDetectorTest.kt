@@ -32,7 +32,9 @@ class WrongLogUsageDetectorTest {
                 |    ~~~~~~~~~~~~~~~~~~~
                 |0 errors, 1 warnings
                 """.trimMargin(),
-            ).expectFixDiffs(
+            )
+            .verifyFixes()
+            .expectFixDiffs(
                 """
                 |Fix for src/foo/Example.java line 5: Replace with com.juul.khronicle.Log.debug(tag = "TAG") { "msg" }:
                 |@@ -3 +3
@@ -120,7 +122,9 @@ class WrongLogUsageDetectorTest {
                 |    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 |0 errors, 1 warnings
                 """.trimMargin(),
-            ).expectFixDiffs(
+            )
+            .verifyFixes()
+            .expectFixDiffs(
                 """
                 |Fix for src/foo/Example.java line 5: Replace with com.juul.khronicle.Log.debug(tag = "TAG", throwable = new Exception()) { "msg" }:
                 |@@ -3 +3
@@ -207,7 +211,9 @@ class WrongLogUsageDetectorTest {
                 |    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 |0 errors, 1 warnings
                 """.trimMargin(),
-            ).expectFixDiffs(
+            )
+            .verifyFixes()
+            .expectFixDiffs(
                 """
                 |Fix for src/foo/Example.java line 4: Replace with com.juul.khronicle.Log.debug(tag = "TAG") { "msg" }:
                 |@@ -2 +2
@@ -293,7 +299,9 @@ class WrongLogUsageDetectorTest {
                 |    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 |0 errors, 1 warnings
                 """.trimMargin(),
-            ).expectFixDiffs(
+            )
+            .verifyFixes()
+            .expectFixDiffs(
                 """
                 |Fix for src/foo/Example.java line 4: Replace with com.juul.khronicle.Log.debug(tag = "TAG", throwable = new Exception()) { "msg" }:
                 |@@ -2 +2
