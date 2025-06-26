@@ -1,12 +1,12 @@
 [versions]
-android-agp = "8.9.0"
+android-agp = "8.10.1"
 android-compile = "34"
-android-tools = "31.9.0" # If the AGP version is X.Y.Z, then the Lint library version is X+23.Y.Z.
-atomicfu = "0.27.0"
+android-tools = "31.10.1" # If the AGP version is X.Y.Z, then the Lint library version is X+23.Y.Z.
+atomicfu = "0.28.0"
 jacoco = "0.8.7"
 jvm-target = "1.8"
 kotlin = "2.1.20"
-ktor = "3.1.1"
+ktor = "3.2.0"
 
 [libraries]
 android-lint-api = { module = "com.android.tools.lint:lint-api", version.ref = "android-tools" }
@@ -15,17 +15,17 @@ androidx-test-junit = "androidx.test.ext:junit:1.2.1"
 androidx-test-runner = "androidx.test:runner:1.6.2"
 atomicfu = { module = "org.jetbrains.kotlinx:atomicfu", version.ref = "atomicfu" }
 junit = "junit:junit:4.13.2"
-kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version = "1.10.1" }
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version = "1.10.2" }
 ktor-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
 ktor-mock = { module = "io.ktor:ktor-client-mock", version.ref = "ktor" }
-robolectric = "org.robolectric:robolectric:4.14.1"
+robolectric = "org.robolectric:robolectric:4.15.1"
 
 [plugins]
 android-library = { id = "com.android.library", version.ref = "android-agp" }
-android-publish = { id = "com.vanniktech.maven.publish", version = "0.31.0" }
+android-publish = { id = "com.vanniktech.maven.publish", version = "0.33.0" }
 api = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version = "0.17.0" }
 atomicfu = { id = "org.jetbrains.kotlinx.atomicfu", version.ref = "atomicfu" }
 dokka = { id = "org.jetbrains.dokka", version = "2.0.0" }
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
-kotlinter = { id = "org.jmailen.kotlinter", version = "5.0.1" }
+kotlinter = { id = "org.jmailen.kotlinter", version = "5.1.1" }
