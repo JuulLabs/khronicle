@@ -85,7 +85,7 @@ public abstract interface class com/juul/khronicle/Logger : com/juul/khronicle/H
 	public abstract fun assert (Ljava/lang/String;Ljava/lang/String;Lcom/juul/khronicle/ReadMetadata;Ljava/lang/Throwable;)V
 	public abstract fun debug (Ljava/lang/String;Ljava/lang/String;Lcom/juul/khronicle/ReadMetadata;Ljava/lang/Throwable;)V
 	public abstract fun error (Ljava/lang/String;Ljava/lang/String;Lcom/juul/khronicle/ReadMetadata;Ljava/lang/Throwable;)V
-	public abstract fun getMinimumLogLevel ()Lcom/juul/khronicle/LogLevel;
+	public fun getMinimumLogLevel ()Lcom/juul/khronicle/LogLevel;
 	public abstract fun info (Ljava/lang/String;Ljava/lang/String;Lcom/juul/khronicle/ReadMetadata;Ljava/lang/Throwable;)V
 	public abstract fun verbose (Ljava/lang/String;Ljava/lang/String;Lcom/juul/khronicle/ReadMetadata;Ljava/lang/Throwable;)V
 	public abstract fun warn (Ljava/lang/String;Ljava/lang/String;Lcom/juul/khronicle/ReadMetadata;Ljava/lang/Throwable;)V
