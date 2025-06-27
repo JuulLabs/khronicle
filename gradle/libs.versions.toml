@@ -1,7 +1,7 @@
 [versions]
 android-agp = "8.10.1"
 android-compile = "34"
-android-tools = "31.10.1" # If the AGP version is X.Y.Z, then the Lint library version is X+23.Y.Z.
+android-tools = "31.11.0" # If the AGP version is X.Y.Z, then the Lint library version is X+23.Y.Z.
 atomicfu = "0.28.0"
 jacoco = "0.8.7"
 jvm-target = "1.8"
