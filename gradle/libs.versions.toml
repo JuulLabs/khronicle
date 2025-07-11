@@ -1,5 +1,5 @@
 [versions]
-android-agp = "8.11.0"
+android-agp = "8.11.1"
 android-compile = "34"
 android-tools = "31.11.0" # If the AGP version is X.Y.Z, then the Lint library version is X+23.Y.Z.
 atomicfu = "0.29.0"
