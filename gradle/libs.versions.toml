@@ -12,7 +12,7 @@ ktor = "3.2.2"
 android-lint-api = { module = "com.android.tools.lint:lint-api", version.ref = "android-tools" }
 android-lint-test = { module = "com.android.tools.lint:lint-tests", version.ref = "android-tools" }
 androidx-test-junit = "androidx.test.ext:junit:1.2.1"
-androidx-test-runner = "androidx.test:runner:1.6.2"
+androidx-test-runner = "androidx.test:runner:1.7.0"
 atomicfu = { module = "org.jetbrains.kotlinx:atomicfu", version.ref = "atomicfu" }
 junit = "junit:junit:4.13.2"
 kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version = "1.10.2" }
