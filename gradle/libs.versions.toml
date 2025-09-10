@@ -5,7 +5,7 @@ android-tools = "31.13.0" # If the AGP version is X.Y.Z, then the Lint library v
 atomicfu = "0.29.0"
 jacoco = "0.8.7"
 jvm-target = "1.8"
-kotlin = "2.2.10"
+kotlin = "2.2.20"
 ktor = "3.2.3"
 
 [libraries]
