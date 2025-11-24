@@ -1,10 +1,12 @@
 [versions]
-android-agp = "8.13.0"
-android-compile = "34"
+android-agp = "8.13.1"
+android-compile = "36"
+android-min = "16"
+android-target = "36"
 android-tools = "31.13.0" # If the AGP version is X.Y.Z, then the Lint library version is X+23.Y.Z.
 atomicfu = "0.29.0"
 jacoco = "0.8.7"
-jvm-target = "1.8"
+jvm-toolchain = "17"
 kotlin = "2.2.21"
 ktor = "3.3.2"
 
@@ -23,9 +25,10 @@ robolectric = "org.robolectric:robolectric:4.16"
 
 [plugins]
 android-library = { id = "com.android.library", version.ref = "android-agp" }
-android-publish = { id = "com.vanniktech.maven.publish", version = "0.34.0" }
+android-lint = { id = "com.android.lint", version.ref = "android-agp" }
 api = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version = "0.18.1" }
 atomicfu = { id = "org.jetbrains.kotlinx.atomicfu", version.ref = "atomicfu" }
 dokka = { id = "org.jetbrains.dokka", version = "2.1.0" }
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlinter = { id = "org.jmailen.kotlinter", version = "5.3.0" }
+maven-publish = { id = "com.vanniktech.maven.publish", version = "0.34.0" }
