@@ -1,5 +1,3 @@
-group = "com.juul.khronicle"
-
 plugins {
     id("kotlin-conventions")
     jacoco
