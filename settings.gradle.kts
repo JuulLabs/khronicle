@@ -10,7 +10,6 @@ pluginManagement {
 }
 
 include(
-    "khronicle-android",
     "khronicle-android-lint",
     "khronicle-core",
     "khronicle-ktor-client",
