@@ -9,6 +9,8 @@ pluginManagement {
     }
 }
 
+includeBuild("build-logic")
+
 include(
     "khronicle-android-lint",
     "khronicle-core",
