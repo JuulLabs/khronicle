@@ -39,20 +39,34 @@ public abstract interface annotation class com/juul/khronicle/KhronicleInternal 
 public final class com/juul/khronicle/Log {
 	public static final field INSTANCE Lcom/juul/khronicle/Log;
 	public final fun assert (Ljava/lang/String;Ljava/lang/Throwable;Lkotlin/jvm/functions/Function1;)V
+	public final fun assert (Ljava/lang/Throwable;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
 	public static synthetic fun assert$default (Lcom/juul/khronicle/Log;Ljava/lang/String;Ljava/lang/Throwable;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
+	public static synthetic fun assert$default (Lcom/juul/khronicle/Log;Ljava/lang/Throwable;Ljava/lang/String;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
 	public final fun debug (Ljava/lang/String;Ljava/lang/Throwable;Lkotlin/jvm/functions/Function1;)V
+	public final fun debug (Ljava/lang/Throwable;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
 	public static synthetic fun debug$default (Lcom/juul/khronicle/Log;Ljava/lang/String;Ljava/lang/Throwable;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
+	public static synthetic fun debug$default (Lcom/juul/khronicle/Log;Ljava/lang/Throwable;Ljava/lang/String;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
 	public final fun dynamic (Lcom/juul/khronicle/LogLevel;Ljava/lang/String;Ljava/lang/Throwable;Lkotlin/jvm/functions/Function1;)V
+	public final fun dynamic (Lcom/juul/khronicle/LogLevel;Ljava/lang/Throwable;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
 	public static synthetic fun dynamic$default (Lcom/juul/khronicle/Log;Lcom/juul/khronicle/LogLevel;Ljava/lang/String;Ljava/lang/Throwable;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
+	public static synthetic fun dynamic$default (Lcom/juul/khronicle/Log;Lcom/juul/khronicle/LogLevel;Ljava/lang/Throwable;Ljava/lang/String;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
 	public final fun error (Ljava/lang/String;Ljava/lang/Throwable;Lkotlin/jvm/functions/Function1;)V
+	public final fun error (Ljava/lang/Throwable;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
 	public static synthetic fun error$default (Lcom/juul/khronicle/Log;Ljava/lang/String;Ljava/lang/Throwable;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
+	public static synthetic fun error$default (Lcom/juul/khronicle/Log;Ljava/lang/Throwable;Ljava/lang/String;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
 	public final fun getDispatcher ()Lcom/juul/khronicle/DispatchLogger;
 	public final fun info (Ljava/lang/String;Ljava/lang/Throwable;Lkotlin/jvm/functions/Function1;)V
+	public final fun info (Ljava/lang/Throwable;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
 	public static synthetic fun info$default (Lcom/juul/khronicle/Log;Ljava/lang/String;Ljava/lang/Throwable;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
+	public static synthetic fun info$default (Lcom/juul/khronicle/Log;Ljava/lang/Throwable;Ljava/lang/String;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
 	public final fun verbose (Ljava/lang/String;Ljava/lang/Throwable;Lkotlin/jvm/functions/Function1;)V
+	public final fun verbose (Ljava/lang/Throwable;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
 	public static synthetic fun verbose$default (Lcom/juul/khronicle/Log;Ljava/lang/String;Ljava/lang/Throwable;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
+	public static synthetic fun verbose$default (Lcom/juul/khronicle/Log;Ljava/lang/Throwable;Ljava/lang/String;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
 	public final fun warn (Ljava/lang/String;Ljava/lang/Throwable;Lkotlin/jvm/functions/Function1;)V
+	public final fun warn (Ljava/lang/Throwable;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
 	public static synthetic fun warn$default (Lcom/juul/khronicle/Log;Ljava/lang/String;Ljava/lang/Throwable;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
+	public static synthetic fun warn$default (Lcom/juul/khronicle/Log;Ljava/lang/Throwable;Ljava/lang/String;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
 }
 
 public abstract interface class com/juul/khronicle/LogFilter {
