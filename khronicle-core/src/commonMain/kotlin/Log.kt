@@ -44,7 +44,7 @@ public object Log {
     @Deprecated(
         "Tag is now required. This overload retained for binary compatibility only.",
         level = DeprecationLevel.ERROR,
-        replaceWith = ReplaceWith("dynamic(level, tag, throwable, message)"),
+        replaceWith = ReplaceWith("verbose(tag, throwable, message)"),
     )
     public fun verbose(throwable: Throwable? = null, tag: String? = null, message: (WriteMetadata) -> String) {
         verbose(tag ?: "No Tag", throwable, message)
@@ -63,7 +63,7 @@ public object Log {
     @Deprecated(
         "Tag is now required. This overload retained for binary compatibility only.",
         level = DeprecationLevel.ERROR,
-        replaceWith = ReplaceWith("dynamic(level, tag, throwable, message)"),
+        replaceWith = ReplaceWith("debug(tag, throwable, message)"),
     )
     public fun debug(throwable: Throwable? = null, tag: String? = null, message: (WriteMetadata) -> String) {
         debug(tag ?: "No Tag", throwable, message)
@@ -82,7 +82,7 @@ public object Log {
     @Deprecated(
         "Tag is now required. This overload retained for binary compatibility only.",
         level = DeprecationLevel.ERROR,
-        replaceWith = ReplaceWith("dynamic(level, tag, throwable, message)"),
+        replaceWith = ReplaceWith("info(tag, throwable, message)"),
     )
     public fun info(throwable: Throwable? = null, tag: String? = null, message: (WriteMetadata) -> String) {
         info(tag ?: "No Tag", throwable, message)
@@ -101,7 +101,7 @@ public object Log {
     @Deprecated(
         "Tag is now required. This overload retained for binary compatibility only.",
         level = DeprecationLevel.ERROR,
-        replaceWith = ReplaceWith("dynamic(level, tag, throwable, message)"),
+        replaceWith = ReplaceWith("warn(tag, throwable, message)"),
     )
     public fun warn(throwable: Throwable? = null, tag: String? = null, message: (WriteMetadata) -> String) {
         warn(tag ?: "No Tag", throwable, message)
@@ -120,7 +120,7 @@ public object Log {
     @Deprecated(
         "Tag is now required. This overload retained for binary compatibility only.",
         level = DeprecationLevel.ERROR,
-        replaceWith = ReplaceWith("dynamic(level, tag, throwable, message)"),
+        replaceWith = ReplaceWith("error(tag, throwable, message)"),
     )
     public fun error(throwable: Throwable? = null, tag: String? = null, message: (WriteMetadata) -> String) {
         error(tag ?: "No Tag", throwable, message)
@@ -139,7 +139,7 @@ public object Log {
     @Deprecated(
         "Tag is now required. This overload retained for binary compatibility only.",
         level = DeprecationLevel.ERROR,
-        replaceWith = ReplaceWith("dynamic(level, tag, throwable, message)"),
+        replaceWith = ReplaceWith("assert(tag, throwable, message)"),
     )
     public fun assert(throwable: Throwable? = null, tag: String? = null, message: (WriteMetadata) -> String) {
         assert(tag ?: "No Tag", throwable, message)
