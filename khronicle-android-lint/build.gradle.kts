@@ -1,14 +1,21 @@
 plugins {
-    kotlin("jvm")
-    id("com.android.lint")
-    id("com.vanniktech.maven.publish")
-    id("org.jmailen.kotlinter")
+    id("kotlin-conventions")
+    alias(libs.plugins.android.lint)
+    alias(libs.plugins.maven.publish)
 }
 
-dependencies {
-    compileOnly(libs.android.lint.api)
+kotlin {
+    jvm()
 
-    testImplementation(libs.android.lint.api)
-    testImplementation(libs.android.lint.test)
-    testImplementation(libs.junit)
+    sourceSets {
+        jvmMain.dependencies {
+            compileOnly(libs.android.lint.api)
+        }
+
+        jvmTest.dependencies {
+            implementation(libs.android.lint.api)
+            implementation(libs.android.lint.test)
+            implementation(libs.junit)
+        }
+    }
 }
