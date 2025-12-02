@@ -1,3 +1,3 @@
 package com.juul.khronicle
 
-public actual object ConsoleLogger : Logger by PrintlnLogger, HideFromStackTraceTag
+public actual object ConsoleLogger : Logger by PrintlnLogger

@@ -1,7 +1,7 @@
 package com.juul.khronicle
 
 /** Alternative to [ConsoleLogger] that does not take advantage of extra available features. */
-public object PrintlnLogger : Logger, HideFromStackTraceTag {
+public object PrintlnLogger : Logger {
 
     override fun verbose(tag: String, message: String, metadata: ReadMetadata, throwable: Throwable?) {
         print('V', tag, message, throwable)

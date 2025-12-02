@@ -9,11 +9,6 @@ public final class com/juul/khronicle/ConsoleLogger : com/juul/khronicle/Logger 
 	public fun warn (Ljava/lang/String;Ljava/lang/String;Lcom/juul/khronicle/ReadMetadata;Ljava/lang/Throwable;)V
 }
 
-public final class com/juul/khronicle/ConstantTagGenerator : com/juul/khronicle/TagGenerator {
-	public fun <init> (Ljava/lang/String;)V
-	public fun getTag ()Ljava/lang/String;
-}
-
 public final class com/juul/khronicle/DispatchLogger : com/juul/khronicle/Logger {
 	public fun <init> ()V
 	public fun assert (Ljava/lang/String;Ljava/lang/String;Lcom/juul/khronicle/ReadMetadata;Ljava/lang/Throwable;)V
@@ -35,33 +30,42 @@ public final class com/juul/khronicle/FilterLoggerKt {
 	public static final fun withFilter (Lcom/juul/khronicle/Logger;Lcom/juul/khronicle/LogFilter;)Lcom/juul/khronicle/Logger;
 }
 
-public abstract interface class com/juul/khronicle/HideFromStackTraceTag {
-}
-
 public abstract interface class com/juul/khronicle/Key {
 }
 
 public abstract interface annotation class com/juul/khronicle/KhronicleInternal : java/lang/annotation/Annotation {
 }
 
-public final class com/juul/khronicle/Log : com/juul/khronicle/HideFromStackTraceTag {
+public final class com/juul/khronicle/Log {
 	public static final field INSTANCE Lcom/juul/khronicle/Log;
+	public final fun assert (Ljava/lang/String;Ljava/lang/Throwable;Lkotlin/jvm/functions/Function1;)V
 	public final fun assert (Ljava/lang/Throwable;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
+	public static synthetic fun assert$default (Lcom/juul/khronicle/Log;Ljava/lang/String;Ljava/lang/Throwable;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
 	public static synthetic fun assert$default (Lcom/juul/khronicle/Log;Ljava/lang/Throwable;Ljava/lang/String;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
+	public final fun debug (Ljava/lang/String;Ljava/lang/Throwable;Lkotlin/jvm/functions/Function1;)V
 	public final fun debug (Ljava/lang/Throwable;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
+	public static synthetic fun debug$default (Lcom/juul/khronicle/Log;Ljava/lang/String;Ljava/lang/Throwable;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
 	public static synthetic fun debug$default (Lcom/juul/khronicle/Log;Ljava/lang/Throwable;Ljava/lang/String;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
+	public final fun dynamic (Lcom/juul/khronicle/LogLevel;Ljava/lang/String;Ljava/lang/Throwable;Lkotlin/jvm/functions/Function1;)V
 	public final fun dynamic (Lcom/juul/khronicle/LogLevel;Ljava/lang/Throwable;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
+	public static synthetic fun dynamic$default (Lcom/juul/khronicle/Log;Lcom/juul/khronicle/LogLevel;Ljava/lang/String;Ljava/lang/Throwable;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
 	public static synthetic fun dynamic$default (Lcom/juul/khronicle/Log;Lcom/juul/khronicle/LogLevel;Ljava/lang/Throwable;Ljava/lang/String;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
+	public final fun error (Ljava/lang/String;Ljava/lang/Throwable;Lkotlin/jvm/functions/Function1;)V
 	public final fun error (Ljava/lang/Throwable;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
+	public static synthetic fun error$default (Lcom/juul/khronicle/Log;Ljava/lang/String;Ljava/lang/Throwable;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
 	public static synthetic fun error$default (Lcom/juul/khronicle/Log;Ljava/lang/Throwable;Ljava/lang/String;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
 	public final fun getDispatcher ()Lcom/juul/khronicle/DispatchLogger;
-	public final fun getTagGenerator ()Lcom/juul/khronicle/TagGenerator;
+	public final fun info (Ljava/lang/String;Ljava/lang/Throwable;Lkotlin/jvm/functions/Function1;)V
 	public final fun info (Ljava/lang/Throwable;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
+	public static synthetic fun info$default (Lcom/juul/khronicle/Log;Ljava/lang/String;Ljava/lang/Throwable;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
 	public static synthetic fun info$default (Lcom/juul/khronicle/Log;Ljava/lang/Throwable;Ljava/lang/String;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
-	public final fun setTagGenerator (Lcom/juul/khronicle/TagGenerator;)V
+	public final fun verbose (Ljava/lang/String;Ljava/lang/Throwable;Lkotlin/jvm/functions/Function1;)V
 	public final fun verbose (Ljava/lang/Throwable;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
+	public static synthetic fun verbose$default (Lcom/juul/khronicle/Log;Ljava/lang/String;Ljava/lang/Throwable;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
 	public static synthetic fun verbose$default (Lcom/juul/khronicle/Log;Ljava/lang/Throwable;Ljava/lang/String;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
+	public final fun warn (Ljava/lang/String;Ljava/lang/Throwable;Lkotlin/jvm/functions/Function1;)V
 	public final fun warn (Ljava/lang/Throwable;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
+	public static synthetic fun warn$default (Lcom/juul/khronicle/Log;Ljava/lang/String;Ljava/lang/Throwable;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
 	public static synthetic fun warn$default (Lcom/juul/khronicle/Log;Ljava/lang/Throwable;Ljava/lang/String;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
 }
 
@@ -81,7 +85,7 @@ public final class com/juul/khronicle/LogLevel : java/lang/Enum {
 	public static fun values ()[Lcom/juul/khronicle/LogLevel;
 }
 
-public abstract interface class com/juul/khronicle/Logger : com/juul/khronicle/HideFromStackTraceTag {
+public abstract interface class com/juul/khronicle/Logger {
 	public abstract fun assert (Ljava/lang/String;Ljava/lang/String;Lcom/juul/khronicle/ReadMetadata;Ljava/lang/Throwable;)V
 	public abstract fun debug (Ljava/lang/String;Ljava/lang/String;Lcom/juul/khronicle/ReadMetadata;Ljava/lang/Throwable;)V
 	public abstract fun error (Ljava/lang/String;Ljava/lang/String;Lcom/juul/khronicle/ReadMetadata;Ljava/lang/Throwable;)V
@@ -99,7 +103,7 @@ public final class com/juul/khronicle/LoggerKt {
 	public static final fun dynamic (Lcom/juul/khronicle/Logger;Lcom/juul/khronicle/LogLevel;Ljava/lang/String;Ljava/lang/String;Lcom/juul/khronicle/ReadMetadata;Ljava/lang/Throwable;)V
 }
 
-public final class com/juul/khronicle/PrintlnLogger : com/juul/khronicle/HideFromStackTraceTag, com/juul/khronicle/Logger {
+public final class com/juul/khronicle/PrintlnLogger : com/juul/khronicle/Logger {
 	public static final field INSTANCE Lcom/juul/khronicle/PrintlnLogger;
 	public fun assert (Ljava/lang/String;Ljava/lang/String;Lcom/juul/khronicle/ReadMetadata;Ljava/lang/Throwable;)V
 	public fun debug (Ljava/lang/String;Ljava/lang/String;Lcom/juul/khronicle/ReadMetadata;Ljava/lang/Throwable;)V
@@ -142,10 +146,6 @@ public abstract class com/juul/khronicle/SimpleLogger : com/juul/khronicle/Logge
 
 public final class com/juul/khronicle/SynchronizedLoggerKt {
 	public static final fun synchronized (Lcom/juul/khronicle/Logger;)Lcom/juul/khronicle/Logger;
-}
-
-public abstract interface class com/juul/khronicle/TagGenerator {
-	public abstract fun getTag ()Ljava/lang/String;
 }
 
 public abstract interface class com/juul/khronicle/WriteMetadata {
