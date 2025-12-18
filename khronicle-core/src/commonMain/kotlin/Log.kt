@@ -22,15 +22,6 @@ public object Log {
         }
     }
 
-    @Deprecated(
-        "Tag is now required. This overload retained for binary compatibility only.",
-        level = DeprecationLevel.ERROR,
-        replaceWith = ReplaceWith("dynamic(level, tag, throwable, message)"),
-    )
-    public fun dynamic(level: LogLevel, throwable: Throwable? = null, tag: String? = null, message: (WriteMetadata) -> String) {
-        dynamic(level, tag ?: "No Tag", throwable, message)
-    }
-
     /** Send a verbose-level log message to the global dispatcher. */
     public fun verbose(tag: String, throwable: Throwable? = null, message: (WriteMetadata) -> String) {
         if (dispatcher.canLog(LogLevel.Verbose)) {
@@ -39,15 +30,6 @@ public object Log {
             dispatcher.verbose(tag, body, metadata, throwable)
             metadataPool.recycle(metadata)
         }
-    }
-
-    @Deprecated(
-        "Tag is now required. This overload retained for binary compatibility only.",
-        level = DeprecationLevel.ERROR,
-        replaceWith = ReplaceWith("verbose(tag, throwable, message)"),
-    )
-    public fun verbose(throwable: Throwable? = null, tag: String? = null, message: (WriteMetadata) -> String) {
-        verbose(tag ?: "No Tag", throwable, message)
     }
 
     /** Send a debug-level log message to the global dispatcher. */
@@ -60,15 +42,6 @@ public object Log {
         }
     }
 
-    @Deprecated(
-        "Tag is now required. This overload retained for binary compatibility only.",
-        level = DeprecationLevel.ERROR,
-        replaceWith = ReplaceWith("debug(tag, throwable, message)"),
-    )
-    public fun debug(throwable: Throwable? = null, tag: String? = null, message: (WriteMetadata) -> String) {
-        debug(tag ?: "No Tag", throwable, message)
-    }
-
     /** Send an info-level log message to the global dispatcher. */
     public fun info(tag: String, throwable: Throwable? = null, message: (WriteMetadata) -> String) {
         if (dispatcher.canLog(LogLevel.Info)) {
@@ -77,15 +50,6 @@ public object Log {
             dispatcher.info(tag, body, metadata, throwable)
             metadataPool.recycle(metadata)
         }
-    }
-
-    @Deprecated(
-        "Tag is now required. This overload retained for binary compatibility only.",
-        level = DeprecationLevel.ERROR,
-        replaceWith = ReplaceWith("info(tag, throwable, message)"),
-    )
-    public fun info(throwable: Throwable? = null, tag: String? = null, message: (WriteMetadata) -> String) {
-        info(tag ?: "No Tag", throwable, message)
     }
 
     /** Send an warn-level log message to the global dispatcher. */
@@ -98,15 +62,6 @@ public object Log {
         }
     }
 
-    @Deprecated(
-        "Tag is now required. This overload retained for binary compatibility only.",
-        level = DeprecationLevel.ERROR,
-        replaceWith = ReplaceWith("warn(tag, throwable, message)"),
-    )
-    public fun warn(throwable: Throwable? = null, tag: String? = null, message: (WriteMetadata) -> String) {
-        warn(tag ?: "No Tag", throwable, message)
-    }
-
     /** Send an error-level log message to the global dispatcher. */
     public fun error(tag: String, throwable: Throwable? = null, message: (WriteMetadata) -> String) {
         if (dispatcher.canLog(LogLevel.Error)) {
@@ -117,15 +72,6 @@ public object Log {
         }
     }
 
-    @Deprecated(
-        "Tag is now required. This overload retained for binary compatibility only.",
-        level = DeprecationLevel.ERROR,
-        replaceWith = ReplaceWith("error(tag, throwable, message)"),
-    )
-    public fun error(throwable: Throwable? = null, tag: String? = null, message: (WriteMetadata) -> String) {
-        error(tag ?: "No Tag", throwable, message)
-    }
-
     /** Send an assert-level log message to the global dispatcher. */
     public fun assert(tag: String, throwable: Throwable? = null, message: (WriteMetadata) -> String) {
         if (dispatcher.canLog(LogLevel.Assert)) {
@@ -134,15 +80,6 @@ public object Log {
             dispatcher.assert(tag, body, metadata, throwable)
             metadataPool.recycle(metadata)
         }
-    }
-
-    @Deprecated(
-        "Tag is now required. This overload retained for binary compatibility only.",
-        level = DeprecationLevel.ERROR,
-        replaceWith = ReplaceWith("assert(tag, throwable, message)"),
-    )
-    public fun assert(throwable: Throwable? = null, tag: String? = null, message: (WriteMetadata) -> String) {
-        assert(tag ?: "No Tag", throwable, message)
     }
 
     private fun DispatchLogger.canLog(level: LogLevel): Boolean =
