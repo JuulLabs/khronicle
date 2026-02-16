@@ -1,5 +1,5 @@
 [versions]
-android-agp = "8.13.2"
+android-agp = "9.0.1"
 android-compile = "36"
 android-min = "16"
 android-target = "36"
