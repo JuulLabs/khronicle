@@ -28,7 +28,7 @@ android-library = { id = "com.android.library", version.ref = "android-agp" }
 android-lint = { id = "com.android.lint", version.ref = "android-agp" }
 api = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version = "0.18.1" }
 atomicfu = { id = "org.jetbrains.kotlinx.atomicfu", version.ref = "atomicfu" }
-dokka = { id = "org.jetbrains.dokka", version = "2.1.0" }
+dokka = { id = "org.jetbrains.dokka", version = "2.2.0" }
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlinter = { id = "org.jmailen.kotlinter", version = "5.3.0" }
 maven-publish = { id = "com.vanniktech.maven.publish", version = "0.36.0" }
