@@ -1,21 +1,16 @@
 plugins {
-    id("kotlin-conventions")
+    id("repository-conventions")
+    id("test-conventions")
     alias(libs.plugins.android.lint)
+    alias(libs.plugins.kotlin.jvm)
+    alias(libs.plugins.kotlinter)
     alias(libs.plugins.maven.publish)
 }
 
-kotlin {
-    jvm()
+dependencies {
+    compileOnly(libs.android.lint.api)
 
-    sourceSets {
-        jvmMain.dependencies {
-            compileOnly(libs.android.lint.api)
-        }
-
-        jvmTest.dependencies {
-            implementation(libs.android.lint.api)
-            implementation(libs.android.lint.test)
-            implementation(libs.junit)
-        }
-    }
+    testImplementation(libs.android.lint.api)
+    testImplementation(libs.android.lint.test)
+    testImplementation(libs.junit)
 }
