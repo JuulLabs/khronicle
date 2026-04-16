@@ -16,12 +16,12 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
-      - uses: gradle/actions/setup-gradle@v5
+      - uses: gradle/actions/setup-gradle@v6
 
       - run: ./gradlew assemble
 
       - run: ./gradlew check
-      - uses: actions/upload-artifact@v6
+      - uses: actions/upload-artifact@v7
         if: failure()
         with:
           name: build-reports
@@ -30,7 +30,7 @@ jobs:
 
       - run: ./gradlew jacocoTestReport
 
-      - uses: codecov/codecov-action@v5
+      - uses: codecov/codecov-action@v6
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
 
