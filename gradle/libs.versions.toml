@@ -24,7 +24,7 @@ ktor-mock = { module = "io.ktor:ktor-client-mock", version.ref = "ktor" }
 robolectric = "org.robolectric:robolectric:4.16.1"
 
 [plugins]
-android-library = { id = "com.android.library", version.ref = "android-agp" }
+android-kotlin-multiplatform-library = { id = "com.android.kotlin.multiplatform.library", version.ref = "android-agp" }
 android-lint = { id = "com.android.lint", version.ref = "android-agp" }
 api = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version = "0.18.1" }
 atomicfu = { id = "org.jetbrains.kotlinx.atomicfu", version.ref = "atomicfu" }
