@@ -21,6 +21,9 @@ kotlin {
     macosArm64()
     macosX64()
     wasmJs().browser()
+    watchosArm64()
+    watchosDeviceArm64()
+    watchosSimulatorArm64()
 
     sourceSets {
         all {
