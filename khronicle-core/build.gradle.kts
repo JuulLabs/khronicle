@@ -11,8 +11,6 @@ kotlin {
     }
 }
 
-android {
-    dependencies {
-        lintPublish(projects.khronicleAndroidLint)
-    }
+dependencies {
+    add("lintPublish", projects.khronicleAndroidLint)
 }
