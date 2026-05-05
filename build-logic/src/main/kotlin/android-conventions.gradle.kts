@@ -1,31 +1,33 @@
 plugins {
     id("kotlin-conventions")
-    alias(libs.plugins.android.library)
+    alias(libs.plugins.android.kotlin.multiplatform.library)
 }
 
 kotlin {
-    androidTarget().publishLibraryVariants("debug", "release")
+    android {
+        compileSdk = libs.versions.android.compile.get().toInt()
+        minSdk = libs.versions.android.min.get().toInt()
 
-    sourceSets {
-        androidUnitTest.dependencies {
-            implementation(libs.androidx.test.junit)
-            implementation(libs.androidx.test.runner)
-            implementation(libs.robolectric)
+        namespace = "com.juul.khronicle.${project.name.replace("-", ".")}"
+
+        withHostTest {}
+
+        lint {
+            abortOnError = true
+            warningsAsErrors = true
+
+            disable += "AndroidGradlePluginVersion"
+            disable += "GradleDependency"
         }
     }
-}
 
-android {
-    compileSdk = libs.versions.android.compile.get().toInt()
-    defaultConfig.minSdk = libs.versions.android.min.get().toInt()
-
-    namespace = "com.juul.khronicle.${project.name.replace("-", ".")}"
-
-    lint {
-        abortOnError = true
-        warningsAsErrors = true
-
-        disable += "AndroidGradlePluginVersion"
-        disable += "GradleDependency"
+    sourceSets {
+        named("androidHostTest") {
+            dependencies {
+                implementation(libs.androidx.test.junit)
+                implementation(libs.androidx.test.runner)
+                implementation(libs.robolectric)
+            }
+        }
     }
 }
