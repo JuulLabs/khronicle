@@ -8,7 +8,7 @@ atomicfu = "0.33.0"
 jacoco = "0.8.15"
 jvm-toolchain = "17"
 kotlin = "2.4.0"
-ktor = "3.5.0"
+ktor = "3.5.1"
 
 [libraries]
 android-lint-api = { module = "com.android.tools.lint:lint-api", version.ref = "android-tools" }
