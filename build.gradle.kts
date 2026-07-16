@@ -9,6 +9,12 @@ plugins {
     alias(libs.plugins.dokka)
 }
 
+dependencies {
+    dokka(projects.khronicleCore)
+    dokka(projects.khronicleKtorClient)
+    dokka(projects.khronicleTest)
+}
+
 apiValidation {
     nonPublicMarkers.add("com.juul.khronicle.KhronicleInternal")
     ignoredProjects += "khronicle-android-lint"
