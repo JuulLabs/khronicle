@@ -7,6 +7,9 @@ kotlin {
     android {
         compileSdk = libs.versions.android.compile.get().toInt()
         minSdk = libs.versions.android.min.get().toInt()
+        aarMetadata {
+            minCompileSdk = libs.versions.android.min.get().toInt()
+        }
 
         namespace = "com.juul.khronicle.${project.name.replace("-", ".")}"
 
