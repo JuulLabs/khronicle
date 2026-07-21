@@ -17,11 +17,11 @@ jobs:
         with:
           cache-read-only: true
 
-      - run: ./gradlew dokkaHtmlMultiModule
+      - run: ./gradlew dokkaGenerate
       - run: >
           tar
           --dereference --hard-dereference
-          --directory build/dokkaHtmlMultiModule
+          --directory build/dokka/html
           -cvf '${{ runner.temp }}/artifact.tar'
           --exclude=.git
           --exclude=.github
