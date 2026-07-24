@@ -1,5 +1,5 @@
 [versions]
-android-agp = "9.3.0"
+android-agp = "9.3.1"
 android-compile = "36"
 android-lint = "32.3.0" # If the AGP version is X.Y.Z, then the Lint library version is X+23.Y.Z.
 android-min = "16"
