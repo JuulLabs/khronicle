@@ -108,6 +108,41 @@ class DispatchLoggerTests {
     }
 
     @Test
+    fun uninstalledConsumerNoLongerReceivesLogs() {
+        val dispatcher = DispatchLogger()
+        val first = CallListLogger()
+        val second = CallListLogger()
+        dispatcher.install(first)
+        dispatcher.install(second)
+        dispatcher.uninstall(first)
+        val metadata = buildMetadata()
+        val call = Call(LogLevel.Verbose, tag = "test-tag", message = "test-message", Throwable(), metadata)
+        dispatcher.verbose(call.tag, call.message, metadata, call.throwable)
+        assertTrue(first.verboseCalls.isEmpty())
+        assertEquals(call, second.verboseCalls.single())
+        assertTrue(dispatcher.hasConsumers)
+    }
+
+    @Test
+    fun uninstallingLastConsumerResultsInNoConsumers() {
+        val dispatcher = DispatchLogger()
+        val consumer = CallListLogger()
+        dispatcher.install(consumer)
+        dispatcher.uninstall(consumer)
+        assertFalse(dispatcher.hasConsumers)
+        assertEquals(LogLevel.Assert, dispatcher.minimumLogLevel)
+    }
+
+    @Test
+    fun uninstallingConsumerThatWasNeverInstalledIsNoOp() {
+        val dispatcher = DispatchLogger()
+        val installed = CallListLogger()
+        dispatcher.install(installed)
+        dispatcher.uninstall(CallListLogger())
+        assertTrue(dispatcher.hasConsumers)
+    }
+
+    @Test
     fun installingDuplicateConsumerDoesNotResultInDuplicateDispatch() {
         val dispatcher = DispatchLogger()
         val consumer = CallListLogger()
