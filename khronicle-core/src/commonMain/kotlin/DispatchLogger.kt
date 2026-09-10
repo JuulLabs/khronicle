@@ -35,6 +35,11 @@ public class DispatchLogger : Logger {
         state.update { DispatcherState(it.consumers + consumer) }
     }
 
+    /** Remove a previously [installed][install] consumer so it no longer receives dispatch calls. */
+    public fun uninstall(consumer: Logger) {
+        state.update { DispatcherState(it.consumers - consumer) }
+    }
+
     /** Uninstall all installed consumers. */
     public fun clear() {
         state.value = EMPTY_STATE
