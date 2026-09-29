@@ -1,5 +1,5 @@
 [versions]
-android-agp = "9.4.0"
+android-agp = "9.4.1"
 android-compile = "36"
 android-lint = "32.4.0" # If the AGP version is X.Y.Z, then the Lint library version is X+23.Y.Z.
 android-min = "16"
@@ -8,7 +8,7 @@ atomicfu = "0.33.0"
 jacoco = "0.8.15"
 jvm-toolchain = "17"
 kotlin = "2.4.20"
-ktor = "3.5.2"
+ktor = "3.6.0"
 
 [libraries]
 android-lint-api = { module = "com.android.tools.lint:lint-api", version.ref = "android-lint" }
