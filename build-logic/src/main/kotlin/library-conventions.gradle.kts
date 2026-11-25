@@ -39,9 +39,9 @@ val jacocoTestReport by tasks.registering(JacocoReport::class) {
         xml.required.set(true)
     }
 
-    classDirectories.setFrom(file("${layout.buildDirectory}/classes/kotlin/jvm/main/"))
+    classDirectories.setFrom(layout.buildDirectory.dir("classes/kotlin/jvm/main"))
     sourceDirectories.setFrom(files("src/commonMain", "src/jvmMain"))
-    executionData.setFrom(files("${layout.buildDirectory}/jacoco/jvmTest.exec"))
+    executionData.setFrom(layout.buildDirectory.file("jacoco/jvmTest.exec"))
 
     dependsOn("jvmTest")
 }
